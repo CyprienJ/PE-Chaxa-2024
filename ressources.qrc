@@ -1,0 +1,12 @@
+<RCC>
+  <qresource prefix="newPrefix">
+    <file>ressources/signal-PhotoRoom_assem.png</file>
+    <file>ressources/signal-PhotoRoom.png</file>
+    <file>ressources/signal2-PhotoRoom.png</file>
+    <file>ressources/red_led.png</file>
+    <file>ressources/green_led.png</file>
+    <file>ressources/EMSE_logo.png</file>
+    <file>ressources/cea.jpeg</file>
+    <file>ressources/captureIC.png</file>
+  </qresource>
+</RCC>

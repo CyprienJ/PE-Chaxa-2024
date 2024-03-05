@@ -1,0 +1,302 @@
+Updated Picoscope Settings: {'ChannelA_en': 2, 'ChannelB_en': 2, 'SamplingFrequency': '250 MSa/s', 'VerticalResolution': '20 mV', 'TriggerThreshold': 1, 'AcquisitionPeriod_PreTrigger': 0, 'AcquisitionPeriod_PostTrigger': 46}
+2023-03-24 23:13:53,843 - DEBUG - Traces/Analysis/Unprotected/Unprotected0.txt
+2023-03-24 23:13:53,845 - DEBUG - Sending data for signal 1
+2023-03-24 23:13:53,845 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:13:53,849 - DEBUG - Plain text : b'5C7E38680D4FD191F7E6A058D1805BF6'
+2023-03-24 23:13:53,919 - DEBUG - Cipher Text: ED16727FC43842B7F9407DDF13E0E57B
+2023-03-24 23:13:54,886 - DEBUG - Traces/Analysis/Unprotected/Unprotected1.txt
+2023-03-24 23:13:54,888 - DEBUG - Sending data for signal 1
+2023-03-24 23:13:54,889 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:13:54,892 - DEBUG - Plain text : b'938A6C60BC53A09D7FE2311D00D4F5E9'
+2023-03-24 23:13:54,974 - DEBUG - Cipher Text: 5E19BDC0F7469EE21E5169EF8C88B9A2
+2023-03-24 23:13:55,886 - DEBUG - Traces/Analysis/Unprotected/Unprotected2.txt
+2023-03-24 23:13:55,887 - DEBUG - Sending data for signal 1
+2023-03-24 23:13:55,888 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:13:55,890 - DEBUG - Plain text : b'D5C6F88A5E669A470643FBCAA95D1472'
+2023-03-24 23:13:55,965 - DEBUG - Cipher Text: ED1B8B38DA3B1E24EE367CD2016BBF85
+2023-03-24 23:13:56,888 - DEBUG - Traces/Analysis/Unprotected/Unprotected3.txt
+2023-03-24 23:13:56,889 - DEBUG - Sending data for signal 1
+2023-03-24 23:13:56,889 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:13:56,891 - DEBUG - Plain text : b'A48DA5CC18FE3E57DED9F1B8CFDEEA5E'
+2023-03-24 23:13:56,972 - DEBUG - Cipher Text: FA0D9766F38B3F149EEBBACB7D4D4018
+2023-03-24 23:13:57,889 - DEBUG - Traces/Analysis/Unprotected/Unprotected4.txt
+2023-03-24 23:13:57,890 - DEBUG - Sending data for signal 1
+2023-03-24 23:13:57,891 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:13:57,893 - DEBUG - Plain text : b'A27233D1536FD8C0384983D4178B78D9'
+2023-03-24 23:13:57,963 - DEBUG - Cipher Text: 482527768EE50507CF75207417596430
+2023-03-24 23:13:58,891 - DEBUG - Traces/Analysis/Unprotected/Unprotected5.txt
+2023-03-24 23:13:58,892 - DEBUG - Sending data for signal 1
+2023-03-24 23:13:58,892 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:13:58,894 - DEBUG - Plain text : b'5B1C46736C060A667426AE5722D880D0'
+2023-03-24 23:13:58,970 - DEBUG - Cipher Text: 19D5933B55D5E186560AB750BEFC469D
+2023-03-24 23:13:59,892 - DEBUG - Traces/Analysis/Unprotected/Unprotected6.txt
+2023-03-24 23:13:59,893 - DEBUG - Sending data for signal 1
+2023-03-24 23:13:59,893 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:13:59,896 - DEBUG - Plain text : b'3984661AF19D19B2E0FA8DF0A69259CB'
+2023-03-24 23:13:59,976 - DEBUG - Cipher Text: DE99B3D643E8DC2878BAE467F4D65455
+2023-03-24 23:14:00,893 - DEBUG - Traces/Analysis/Unprotected/Unprotected7.txt
+2023-03-24 23:14:00,894 - DEBUG - Sending data for signal 1
+2023-03-24 23:14:00,894 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:14:00,896 - DEBUG - Plain text : b'6451CAD69A06C75104EFA13E0EF912B7'
+2023-03-24 23:14:00,981 - DEBUG - Cipher Text: CCEB0AE26E2CEAB75EDEADF8E29B15E1
+2023-03-24 23:14:01,894 - DEBUG - Traces/Analysis/Unprotected/Unprotected8.txt
+2023-03-24 23:14:01,896 - DEBUG - Sending data for signal 1
+2023-03-24 23:14:01,896 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:14:01,898 - DEBUG - Plain text : b'3D5A0511644B1D44E0564133692FCB79'
+2023-03-24 23:14:01,973 - DEBUG - Cipher Text: 5B00F0E2D7A51DF80A9AC36D12285125
+2023-03-24 23:14:02,896 - DEBUG - Traces/Analysis/Unprotected/Unprotected9.txt
+2023-03-24 23:14:02,897 - DEBUG - Sending data for signal 1
+2023-03-24 23:14:02,897 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:14:02,899 - DEBUG - Plain text : b'B40E8D57CD3442BCADACE10D06C6B7C1'
+2023-03-24 23:14:02,979 - DEBUG - Cipher Text: F9888FE97E31971B870A14D46D2E1AE3
+2023-03-24 23:14:03,897 - DEBUG - Traces/Analysis/Unprotected/Unprotected10.txt
+2023-03-24 23:14:03,898 - DEBUG - Sending data for signal 1
+2023-03-24 23:14:03,898 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:14:03,900 - DEBUG - Plain text : b'59CCD7395DE47791CFC1CE7BDAD20EBC'
+2023-03-24 23:14:03,985 - DEBUG - Cipher Text: 1D14CDF0EF1F32F1654A7291C638830A
+2023-03-24 23:14:04,898 - DEBUG - Traces/Analysis/Unprotected/Unprotected11.txt
+2023-03-24 23:14:04,899 - DEBUG - Sending data for signal 1
+2023-03-24 23:14:04,899 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:14:04,902 - DEBUG - Plain text : b'36ADE39F14933A7AB52422561BB9AE72'
+2023-03-24 23:14:04,976 - DEBUG - Cipher Text: F0792E62BB5FE5C7810DA0431BB47778
+2023-03-24 23:14:05,899 - DEBUG - Traces/Analysis/Unprotected/Unprotected12.txt
+2023-03-24 23:14:05,900 - DEBUG - Sending data for signal 1
+2023-03-24 23:14:05,900 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:14:05,902 - DEBUG - Plain text : b'4049DA318BB1D8BB3739D37749A0F8E5'
+2023-03-24 23:14:05,983 - DEBUG - Cipher Text: F1F21A93EAF6C00776EF30EECA3226DF
+2023-03-24 23:14:06,899 - DEBUG - Traces/Analysis/Unprotected/Unprotected13.txt
+2023-03-24 23:14:06,900 - DEBUG - Sending data for signal 1
+2023-03-24 23:14:06,901 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:14:06,903 - DEBUG - Plain text : b'47F44E2E738F045DFC322CB9C5EB0369'
+2023-03-24 23:14:06,975 - DEBUG - Cipher Text: 80D5A55010223F6DCFDB24927DF8DF32
+2023-03-24 23:14:07,901 - DEBUG - Traces/Analysis/Unprotected/Unprotected14.txt
+2023-03-24 23:14:07,902 - DEBUG - Sending data for signal 1
+2023-03-24 23:14:07,902 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:14:07,904 - DEBUG - Plain text : b'86A4374A6C5E2C3A86AEF1FFFF66D94C'
+2023-03-24 23:14:07,981 - DEBUG - Cipher Text: C6AEEEFC548F66046585376505998D97
+2023-03-24 23:14:08,902 - DEBUG - Traces/Analysis/Unprotected/Unprotected15.txt
+2023-03-24 23:14:08,903 - DEBUG - Sending data for signal 1
+2023-03-24 23:14:08,903 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:14:08,905 - DEBUG - Plain text : b'11048AC7DF24C94EEB24C8F643C738E8'
+2023-03-24 23:14:08,987 - DEBUG - Cipher Text: 2CD8D4099EFA26889F2A029B88CF64D9
+2023-03-24 23:14:09,902 - DEBUG - Traces/Analysis/Unprotected/Unprotected16.txt
+2023-03-24 23:14:09,903 - DEBUG - Sending data for signal 1
+2023-03-24 23:14:09,904 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:14:09,906 - DEBUG - Plain text : b'6648D75501E840018A36ADFA862EAEA4'
+2023-03-24 23:14:09,979 - DEBUG - Cipher Text: 8A0D16627222909BCC4BA0B42F302646
+2023-03-24 23:14:10,904 - DEBUG - Traces/Analysis/Unprotected/Unprotected17.txt
+2023-03-24 23:14:10,905 - DEBUG - Sending data for signal 1
+2023-03-24 23:14:10,906 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:14:10,908 - DEBUG - Plain text : b'6557EDDAF1C73866491248D1F67CA63A'
+2023-03-24 23:14:10,985 - DEBUG - Cipher Text: E99ED104DB0BDED1A5D18CD526835A46
+2023-03-24 23:14:11,905 - DEBUG - Traces/Analysis/Unprotected/Unprotected18.txt
+2023-03-24 23:14:11,906 - DEBUG - Sending data for signal 1
+2023-03-24 23:14:11,907 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:14:11,909 - DEBUG - Plain text : b'B0349D9663E61CDB4603A290FA61682B'
+2023-03-24 23:14:11,992 - DEBUG - Cipher Text: BA346E0C1D5C84E7C1C6E3B3CE52BC8F
+2023-03-24 23:14:12,906 - DEBUG - Traces/Analysis/Unprotected/Unprotected19.txt
+2023-03-24 23:14:12,907 - DEBUG - Sending data for signal 1
+2023-03-24 23:14:12,908 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:14:12,910 - DEBUG - Plain text : b'2D193BB985F48D065202467C618413BD'
+2023-03-24 23:14:12,982 - DEBUG - Cipher Text: B387997F21893A7A57B9F9AA1D769FE6
+2023-03-24 23:14:13,907 - DEBUG - Traces/Analysis/Unprotected/Unprotected20.txt
+2023-03-24 23:14:13,908 - DEBUG - Sending data for signal 1
+2023-03-24 23:14:13,908 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:14:13,911 - DEBUG - Plain text : b'AE94441311D743C0D4C6821F684D2AB7'
+2023-03-24 23:14:13,989 - DEBUG - Cipher Text: 8F10C61B99116ED2706E24F0B6AD7655
+2023-03-24 23:14:14,908 - DEBUG - Traces/Analysis/Unprotected/Unprotected21.txt
+2023-03-24 23:14:14,909 - DEBUG - Sending data for signal 1
+2023-03-24 23:14:14,909 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:14:14,912 - DEBUG - Plain text : b'03A4C68B05AEB11CAF3145E5B6403615'
+2023-03-24 23:14:14,996 - DEBUG - Cipher Text: 9C3B32E3E5B50A246145968526EC599F
+2023-03-24 23:14:15,909 - DEBUG - Traces/Analysis/Unprotected/Unprotected22.txt
+2023-03-24 23:14:15,910 - DEBUG - Sending data for signal 1
+2023-03-24 23:14:15,910 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:14:15,913 - DEBUG - Plain text : b'58188D941D96991B220827E443E749B0'
+2023-03-24 23:14:15,986 - DEBUG - Cipher Text: E30F0145AF4852E26DD4650E714A6DAF
+2023-03-24 23:14:16,910 - DEBUG - Traces/Analysis/Unprotected/Unprotected23.txt
+2023-03-24 23:14:16,911 - DEBUG - Sending data for signal 1
+2023-03-24 23:14:16,912 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:14:16,914 - DEBUG - Plain text : b'F6D259EB8D512C969D70CAD6FCDA68A7'
+2023-03-24 23:14:16,993 - DEBUG - Cipher Text: 0D3ED02E5B01F16C85BF590EE51FD16E
+2023-03-24 23:14:17,911 - DEBUG - Traces/Analysis/Unprotected/Unprotected24.txt
+2023-03-24 23:14:17,912 - DEBUG - Sending data for signal 1
+2023-03-24 23:14:17,913 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:14:17,915 - DEBUG - Plain text : b'3FCBD363A096C4CBA1860575CD0A84CF'
+2023-03-24 23:14:17,999 - DEBUG - Cipher Text: 1E9FB55DF0350B227635D6CCF2A538B7
+2023-03-24 23:14:18,913 - DEBUG - Traces/Analysis/Unprotected/Unprotected25.txt
+2023-03-24 23:14:18,914 - DEBUG - Sending data for signal 1
+2023-03-24 23:14:18,914 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:14:18,916 - DEBUG - Plain text : b'D66CFABCFC5BEE367A62134848D24E9E'
+2023-03-24 23:14:18,990 - DEBUG - Cipher Text: FE99AB07AA480F7B426BCB4E14E3B9B1
+2023-03-24 23:14:19,913 - DEBUG - Traces/Analysis/Unprotected/Unprotected26.txt
+2023-03-24 23:14:19,914 - DEBUG - Sending data for signal 1
+2023-03-24 23:14:19,915 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:14:19,917 - DEBUG - Plain text : b'AD1375A1769B176CF7F6D95D91F6BC83'
+2023-03-24 23:14:19,997 - DEBUG - Cipher Text: E84F053D71D3655C784472E8F1255984
+2023-03-24 23:14:20,914 - DEBUG - Traces/Analysis/Unprotected/Unprotected27.txt
+2023-03-24 23:14:20,915 - DEBUG - Sending data for signal 1
+2023-03-24 23:14:20,915 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:14:20,917 - DEBUG - Plain text : b'70CB663C054714092FA9AAC416C799F1'
+2023-03-24 23:14:20,987 - DEBUG - Cipher Text: CEB799B4C19D4098FD2A3C6282043ED9
+2023-03-24 23:14:21,915 - DEBUG - Traces/Analysis/Unprotected/Unprotected28.txt
+2023-03-24 23:14:21,916 - DEBUG - Sending data for signal 1
+2023-03-24 23:14:21,916 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:14:21,918 - DEBUG - Plain text : b'9A2BCA8C27F2DE508CD3C380E9AD4AD0'
+2023-03-24 23:14:21,994 - DEBUG - Cipher Text: 262C45CCAF41CCB73BA917DF4AB32FEC
+2023-03-24 23:14:22,916 - DEBUG - Traces/Analysis/Unprotected/Unprotected29.txt
+2023-03-24 23:14:22,917 - DEBUG - Sending data for signal 1
+2023-03-24 23:14:22,917 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:14:22,919 - DEBUG - Plain text : b'C6C2245A5B16B387A63CA8B8F342E50B'
+2023-03-24 23:14:23,000 - DEBUG - Cipher Text: 78CD8638574D0513F0BB48F601BD960F
+2023-03-24 23:14:23,917 - DEBUG - Traces/Analysis/Unprotected/Unprotected30.txt
+2023-03-24 23:14:23,918 - DEBUG - Sending data for signal 1
+2023-03-24 23:14:23,918 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:14:23,920 - DEBUG - Plain text : b'5A7EFE390A1D6A3BB685DF89F7375BA5'
+2023-03-24 23:14:23,991 - DEBUG - Cipher Text: 8FA1777A831352B70EE0F76276FEE33D
+2023-03-24 23:14:24,918 - DEBUG - Traces/Analysis/Unprotected/Unprotected31.txt
+2023-03-24 23:14:24,919 - DEBUG - Sending data for signal 1
+2023-03-24 23:14:24,919 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:14:24,921 - DEBUG - Plain text : b'DAF1A82C349D62F40E7EAFBADAE6B8D9'
+2023-03-24 23:14:24,998 - DEBUG - Cipher Text: 6DF727CC2685373A19B58291BFF801EE
+2023-03-24 23:14:25,919 - DEBUG - Traces/Analysis/Unprotected/Unprotected32.txt
+2023-03-24 23:14:25,920 - DEBUG - Sending data for signal 1
+2023-03-24 23:14:25,920 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:14:25,923 - DEBUG - Plain text : b'4E944A27CDB7F14140851B180D3CDDD3'
+2023-03-24 23:14:26,004 - DEBUG - Cipher Text: FDA1B3C6909C4BA6873AD9057E036535
+2023-03-24 23:14:26,920 - DEBUG - Traces/Analysis/Unprotected/Unprotected33.txt
+2023-03-24 23:14:26,921 - DEBUG - Sending data for signal 1
+2023-03-24 23:14:26,922 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:14:26,924 - DEBUG - Plain text : b'A1612DC5F28BD23DCECE3FB757E1C9E3'
+2023-03-24 23:14:26,995 - DEBUG - Cipher Text: AE529705EAA1B5797F1945838B6A6D89
+2023-03-24 23:14:27,921 - DEBUG - Traces/Analysis/Unprotected/Unprotected34.txt
+2023-03-24 23:14:27,922 - DEBUG - Sending data for signal 1
+2023-03-24 23:14:27,923 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:14:27,925 - DEBUG - Plain text : b'4E8D7D4044B72014201B30D9CB64D6B6'
+2023-03-24 23:14:28,001 - DEBUG - Cipher Text: 8D5A6EBAAC4A0BF60E3EA678004EDB4A
+2023-03-24 23:14:28,922 - DEBUG - Traces/Analysis/Unprotected/Unprotected35.txt
+2023-03-24 23:14:28,923 - DEBUG - Sending data for signal 1
+2023-03-24 23:14:28,924 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:14:28,926 - DEBUG - Plain text : b'C272402E4AC244F2E25EA583EF80D3BC'
+2023-03-24 23:14:29,008 - DEBUG - Cipher Text: 1F312690B1C16790B775431F934D50BF
+2023-03-24 23:14:29,923 - DEBUG - Traces/Analysis/Unprotected/Unprotected36.txt
+2023-03-24 23:14:29,924 - DEBUG - Sending data for signal 1
+2023-03-24 23:14:29,925 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:14:29,927 - DEBUG - Plain text : b'79F30218C75368BD2C8A16D1A7E230F4'
+2023-03-24 23:14:30,000 - DEBUG - Cipher Text: 51C2810A6CA28FFEC6679099B6C22F33
+2023-03-24 23:14:30,925 - DEBUG - Traces/Analysis/Unprotected/Unprotected37.txt
+2023-03-24 23:14:30,926 - DEBUG - Sending data for signal 1
+2023-03-24 23:14:30,926 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:14:30,928 - DEBUG - Plain text : b'86B905CA8EA4268513AE8A9A151E8F62'
+2023-03-24 23:14:31,006 - DEBUG - Cipher Text: 2DABB321FA86FA9492535F151391E481
+2023-03-24 23:14:31,926 - DEBUG - Traces/Analysis/Unprotected/Unprotected38.txt
+2023-03-24 23:14:31,927 - DEBUG - Sending data for signal 1
+2023-03-24 23:14:31,927 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:14:31,929 - DEBUG - Plain text : b'A6FADAE0FB3D4582A142896FE8B199F2'
+2023-03-24 23:14:32,013 - DEBUG - Cipher Text: 7C7B5B6CFBC152F47438DA0DDAC6E063
+2023-03-24 23:14:32,927 - DEBUG - Traces/Analysis/Unprotected/Unprotected39.txt
+2023-03-24 23:14:32,928 - DEBUG - Sending data for signal 1
+2023-03-24 23:14:32,928 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:14:32,930 - DEBUG - Plain text : b'F839D55DBD05D9C357BDDDC4A364EC51'
+2023-03-24 23:14:33,003 - DEBUG - Cipher Text: BDF1B41CAE54E92B7E0D454F817F26CA
+2023-03-24 23:14:33,927 - DEBUG - Traces/Analysis/Unprotected/Unprotected40.txt
+2023-03-24 23:14:33,928 - DEBUG - Sending data for signal 1
+2023-03-24 23:14:33,929 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:14:33,931 - DEBUG - Plain text : b'C4E472095CCE9A343F7E269E98BC1EA1'
+2023-03-24 23:14:34,010 - DEBUG - Cipher Text: AD15144E728BD9D7B31A93506642FB52
+2023-03-24 23:14:34,929 - DEBUG - Traces/Analysis/Unprotected/Unprotected41.txt
+2023-03-24 23:14:34,930 - DEBUG - Sending data for signal 1
+2023-03-24 23:14:34,931 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:14:34,935 - DEBUG - Plain text : b'D1BD0A0E3EF56ACA033AD0E43C711B81'
+2023-03-24 23:14:35,018 - DEBUG - Cipher Text: 71CEF6C0E718B2FFBC0260767A92E19C
+2023-03-24 23:14:35,930 - DEBUG - Traces/Analysis/Unprotected/Unprotected42.txt
+2023-03-24 23:14:35,931 - DEBUG - Sending data for signal 1
+2023-03-24 23:14:35,931 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:14:35,933 - DEBUG - Plain text : b'38E712B4B3DD1EBEC4BC0AB5F40880CC'
+2023-03-24 23:14:36,007 - DEBUG - Cipher Text: 3C514EB10B245492316CD37AAA1D048C
+2023-03-24 23:14:36,930 - DEBUG - Traces/Analysis/Unprotected/Unprotected43.txt
+2023-03-24 23:14:36,931 - DEBUG - Sending data for signal 1
+2023-03-24 23:14:36,932 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:14:36,934 - DEBUG - Plain text : b'EA9170CAD90E71051BE5286A23F74CC7'
+2023-03-24 23:14:37,014 - DEBUG - Cipher Text: 214C7B8D94216593C1A3261E8A96F742
+2023-03-24 23:14:37,932 - DEBUG - Traces/Analysis/Unprotected/Unprotected44.txt
+2023-03-24 23:14:37,933 - DEBUG - Sending data for signal 1
+2023-03-24 23:14:37,933 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:14:37,935 - DEBUG - Plain text : b'2B266C34E6CCA4C442EBFDE13BB6AE5C'
+2023-03-24 23:14:38,019 - DEBUG - Cipher Text: BB7AC8FBE7973455FAE263CB9BC3BC44
+2023-03-24 23:14:38,933 - DEBUG - Traces/Analysis/Unprotected/Unprotected45.txt
+2023-03-24 23:14:38,934 - DEBUG - Sending data for signal 1
+2023-03-24 23:14:38,934 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:14:38,937 - DEBUG - Plain text : b'DBF6B5AF123FD24817FC1A3CF3B7D2DD'
+2023-03-24 23:14:39,011 - DEBUG - Cipher Text: 4DD33A2D764C21D9B4511519E4DAED9D
+2023-03-24 23:14:39,934 - DEBUG - Traces/Analysis/Unprotected/Unprotected46.txt
+2023-03-24 23:14:39,935 - DEBUG - Sending data for signal 1
+2023-03-24 23:14:39,936 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:14:39,938 - DEBUG - Plain text : b'C60024D4434D7937C2929E5C6BA0DA4B'
+2023-03-24 23:14:40,018 - DEBUG - Cipher Text: 0FE951B1DDD321A7BAF45127A3278C76
+2023-03-24 23:14:40,934 - DEBUG - Traces/Analysis/Unprotected/Unprotected47.txt
+2023-03-24 23:14:40,935 - DEBUG - Sending data for signal 1
+2023-03-24 23:14:40,936 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:14:40,938 - DEBUG - Plain text : b'2C3CDA3371EC2D65CFB21D612FCC2AA6'
+2023-03-24 23:14:41,008 - DEBUG - Cipher Text: F266F6A82D05024FF52374B217110A87
+2023-03-24 23:14:41,935 - DEBUG - Traces/Analysis/Unprotected/Unprotected48.txt
+2023-03-24 23:14:41,936 - DEBUG - Sending data for signal 1
+2023-03-24 23:14:41,937 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:14:41,939 - DEBUG - Plain text : b'DB88FF531F7F051EB16B77F8DE38AAB4'
+2023-03-24 23:14:42,015 - DEBUG - Cipher Text: 8CB040B46DFE35AB55BF5EF2E73B7BCF
+2023-03-24 23:14:42,936 - DEBUG - Traces/Analysis/Unprotected/Unprotected49.txt
+2023-03-24 23:14:42,937 - DEBUG - Sending data for signal 1
+2023-03-24 23:14:42,937 - DEBUG - Mux Set to MCU1
+Device ready for capture
+2023-03-24 23:14:42,939 - DEBUG - Plain text : b'91066EF358D4C4802E3F8B80336A15CB'
+2023-03-24 23:14:43,021 - DEBUG - Cipher Text: DA67D55C450449AAB2F94A5A29B3B699
+
