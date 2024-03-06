@@ -50,6 +50,15 @@ class Ui_MainWindow(object):
         self.CB_PicoSettingsButton.setStyleSheet("background-color: rgb(238, 238, 236);")
         self.CB_PicoSettingsButton.setObjectName("CB_PicoSettingsButton")
 
+        # AES Settings Button
+        self.CB_AESSettingsButton = QtWidgets.QPushButton(self.centralwidget)
+        self.CB_AESSettingsButton.move(30,15)
+        self.CB_AESSettingsButton.setMinimumSize(QtCore.QSize(160, 30))
+        self.CB_AESSettingsButton.setMaximumSize(QtCore.QSize(500, 16777215))
+        self.CB_AESSettingsButton.setFont(QtGui.QFont("Lucida Grande", 11))
+        self.CB_AESSettingsButton.setStyleSheet("background-color: rgb(238, 238, 236);")
+        self.CB_AESSettingsButton.setObjectName("CB_AESSettingsButton")
+
         # Bottom Horizontal Layout
         self.bottom_horizontal_layout = QtWidgets.QHBoxLayout()
         self.main_vertical_layout.addLayout(self.bottom_horizontal_layout)
@@ -435,6 +444,7 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "ChaXa Demonstrator"))
         self.CB_PicoSettingsButton.setText(_translate("MainWindow", "Picoscope Settings"))
+        self.CB_AESSettingsButton.setText(_translate("MainWindow", "AES Settings"))
         self.StartAES_Button.setText(_translate("MainWindow", "Start AES encryption"))
         self.StopAES_Button.setText(_translate("MainWindow", "Stop AES encryption"))
         self.Text_encryption_groupBox.setTitle(_translate("MainWindow", "Text encryption"))

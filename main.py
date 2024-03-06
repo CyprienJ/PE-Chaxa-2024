@@ -8,6 +8,7 @@ from PyQt5.QtCore import QTimer
 import mainWindow
 import AboutWindow
 from PicoSettings import PicoSettingsWindow
+import AESSettingsWindow
 
 import picoscope_communication as pico_com
 from helper import set_logging
@@ -93,6 +94,7 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 		self.set_signal_resolution(None)
 		self.stackedWidget.setCurrentIndex(1)
 		self.CB_PicoSettingsButton.hide()
+		self.CB_AESSettingsButton.hide()
 		self.StopAES_Button.hide()
 		
 		############################################
@@ -112,6 +114,7 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 		self.StartAES_Button.clicked.connect(self.on_start_AES_button)
 		self.StopAES_Button.clicked.connect(self.on_stop_AES_button)
 		self.CB_PicoSettingsButton.clicked.connect(self.open_PicoSettingsWindow)
+		self.CB_AESSettingsButton.clicked.connect(self.open_AESSettingsWindow)
 		self.PlainText_random_Button.clicked.connect(self.on_plain_text_random_button)
 		self.actionQuit.triggered.connect(self.close)
 		self.actionAbout_the_app.triggered.connect(self.open_AboutAppWindow)
@@ -552,6 +555,7 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 		self.analysis_cipher_text = []
 		
 		self.CB_PicoSettingsButton.setEnabled(False)
+		self.CB_AESSettingsButton.setEnabled(False)
 		self.PlainText_random_Button.setEnabled(False)
 		self.tabWidget.setEnabled(False)
 		self.number_acquisitions_spinBox.setEnabled(False)
@@ -626,6 +630,7 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 		self.save_plain_and_cipher_texts()
 		
 		self.CB_PicoSettingsButton.setEnabled(True)
+		self.CB_AESSettingsButton.setEnabled(True)
 		self.PlainText_random_Button.setEnabled(True)
 		self.tabWidget.setEnabled(True)
 		self.number_acquisitions_spinBox.setEnabled(True)
@@ -731,6 +736,7 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 		self.stackedWidget.setCurrentIndex(0)
 		self.tabWidget.setCurrentIndex(0)
 		self.on_change_tab(0)
+		self.CB_AESSettingsButton.show()
 		self.CB_PicoSettingsButton.show()
 
 	def open_PicoSettingsWindow(self) -> None:
@@ -738,6 +744,12 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 
 		self._pico_window = PicoSettingsWindow()
 		self._pico_window.show()
+	
+	def open_AESSettingsWindow(self) -> None:
+		"""Open AES settings window"""
+
+		self._aes_window = AESSettingsWindow()
+		self._aes_window.show()
 
 	def on_plain_text_random_button(self) -> None:
 		"""Randomly generate 16 bytes and udpate the PlainText widget"""
