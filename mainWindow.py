@@ -50,14 +50,36 @@ class Ui_MainWindow(object):
         self.CB_PicoSettingsButton.setStyleSheet("background-color: rgb(238, 238, 236);")
         self.CB_PicoSettingsButton.setObjectName("CB_PicoSettingsButton")
 
-        # AES Settings Button
-        self.CB_AESSettingsButton = QtWidgets.QPushButton(self.centralwidget)
-        self.CB_AESSettingsButton.move(30,15)
-        self.CB_AESSettingsButton.setMinimumSize(QtCore.QSize(160, 30))
-        self.CB_AESSettingsButton.setMaximumSize(QtCore.QSize(500, 16777215))
-        self.CB_AESSettingsButton.setFont(QtGui.QFont("Lucida Grande", 11))
-        self.CB_AESSettingsButton.setStyleSheet("background-color: rgb(238, 238, 236);")
-        self.CB_AESSettingsButton.setObjectName("CB_AESSettingsButton")
+
+
+
+        # Barre latérale avec QVBoxLayout
+        self.sidebar_widget = QtWidgets.QWidget(self.centralwidget)
+        self.sidebar_widget.setMinimumSize(QtCore.QSize(50, 30))
+        self.sidebar_layout = QtWidgets.QVBoxLayout(self.sidebar_widget)
+        self.sidebar_layout.setContentsMargins(10, 10, 10, 10)  # Marge pour l'esthétique
+        self.sidebar_layout.setAlignment(QtCore.Qt.AlignmentFlag.AlignTop)
+        # self.sidebar_layout.addWidget(QtWidgets.QLabel("Contenu de la barre latérale"))
+        # Ajouter la barre latérale à droite du stackedWidget
+        self.gridLayout_5.addWidget(self.sidebar_widget, 1, 1, 1, 1)
+
+################################################################################################
+################################################################################################
+################################################################################################
+################################################################################################
+################################################################################################
+        
+        # Change the AES key
+        self.number_AES_spinBox = [QtWidgets.QSpinBox() for _ in range(16)]
+        for i in range(16):
+            self.number_AES_spinBox[i].setMinimumSize(QtCore.QSize(40, 30))
+            self.number_AES_spinBox[i].setMaximumSize(QtCore.QSize(100, 100))
+            self.number_AES_spinBox[i].setFont(QtGui.QFont("Lucida Grande", 11))
+            self.number_AES_spinBox[i].setStyleSheet("background-color: rgb(238, 238, 236);")
+            self.number_AES_spinBox[i].setObjectName("number_AES" + str(i) + "_spinBox")
+            self.number_AES_spinBox[i].setDisplayIntegerBase(16)
+            self.sidebar_layout.addWidget(self.number_AES_spinBox[i])
+
 
         # Bottom Horizontal Layout
         self.bottom_horizontal_layout = QtWidgets.QHBoxLayout()
@@ -444,7 +466,6 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "ChaXa Demonstrator"))
         self.CB_PicoSettingsButton.setText(_translate("MainWindow", "Picoscope Settings"))
-        self.CB_AESSettingsButton.setText(_translate("MainWindow", "AES Settings"))
         self.StartAES_Button.setText(_translate("MainWindow", "Start AES encryption"))
         self.StopAES_Button.setText(_translate("MainWindow", "Stop AES encryption"))
         self.Text_encryption_groupBox.setTitle(_translate("MainWindow", "Text encryption"))

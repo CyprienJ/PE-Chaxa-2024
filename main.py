@@ -8,7 +8,6 @@ from PyQt5.QtCore import QTimer
 import mainWindow
 import AboutWindow
 from PicoSettings import PicoSettingsWindow
-import AESSettingsWindow
 
 import picoscope_communication as pico_com
 from helper import set_logging
@@ -77,6 +76,23 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 		self.number_acquisitions_spinBox.setValue(1)
 		self.number_acquisitions = self.number_acquisitions_spinBox.value()
 		
+		###########################################################################################################################
+		###########################################################################################################################
+		###########################################################################################################################
+		###########################################################################################################################
+		###########################################################################################################################
+		self.number_AES = [0 for i in range(16)]
+		#AES spinBox definition
+		standardKey = [0x2b, 0x7e, 0x15, 0x16, 0x28, 0xae, 0xd2, 0xa6, 0xab, 0xf7, 0x15, 0x88, 0x09, 0xcf, 0x4f, 0x3c]
+		for i in range(16):
+			self.number_AES_spinBox[i].setRange(0, 255)
+			self.number_AES_spinBox[i].setSingleStep(1)
+			self.number_AES_spinBox[i].setValue(standardKey[i])
+			self.number_AES = self.number_AES_spinBox[i].value()
+
+		
+		
+
 		self.acquisition_loop_running = False
 		self.number_acquisitions_done = 0
 		self.acquisition_period_ms = 1000
@@ -94,7 +110,6 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 		self.set_signal_resolution(None)
 		self.stackedWidget.setCurrentIndex(1)
 		self.CB_PicoSettingsButton.hide()
-		self.CB_AESSettingsButton.hide()
 		self.StopAES_Button.hide()
 		
 		############################################
@@ -114,7 +129,6 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 		self.StartAES_Button.clicked.connect(self.on_start_AES_button)
 		self.StopAES_Button.clicked.connect(self.on_stop_AES_button)
 		self.CB_PicoSettingsButton.clicked.connect(self.open_PicoSettingsWindow)
-		self.CB_AESSettingsButton.clicked.connect(self.open_AESSettingsWindow)
 		self.PlainText_random_Button.clicked.connect(self.on_plain_text_random_button)
 		self.actionQuit.triggered.connect(self.close)
 		self.actionAbout_the_app.triggered.connect(self.open_AboutAppWindow)
@@ -430,11 +444,13 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 			self.StartAES_Button.show()
 			self.number_acquisitions_label.show()
 			self.number_acquisitions_spinBox.show()
+			self.sidebar_layout.show()
 		else:
 			self.Text_encryption_groupBox.hide()
 			self.StartAES_Button.hide()
 			self.number_acquisitions_label.hide()
 			self.number_acquisitions_spinBox.hide()
+			self.sidebar_layout.hide()
 	
 	def is_plaintext_correct(self) -> bool:
 		""" Return True if the plaintext has 32 hexa characters """
@@ -555,7 +571,6 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 		self.analysis_cipher_text = []
 		
 		self.CB_PicoSettingsButton.setEnabled(False)
-		self.CB_AESSettingsButton.setEnabled(False)
 		self.PlainText_random_Button.setEnabled(False)
 		self.tabWidget.setEnabled(False)
 		self.number_acquisitions_spinBox.setEnabled(False)
@@ -630,7 +645,6 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 		self.save_plain_and_cipher_texts()
 		
 		self.CB_PicoSettingsButton.setEnabled(True)
-		self.CB_AESSettingsButton.setEnabled(True)
 		self.PlainText_random_Button.setEnabled(True)
 		self.tabWidget.setEnabled(True)
 		self.number_acquisitions_spinBox.setEnabled(True)
@@ -736,7 +750,6 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 		self.stackedWidget.setCurrentIndex(0)
 		self.tabWidget.setCurrentIndex(0)
 		self.on_change_tab(0)
-		self.CB_AESSettingsButton.show()
 		self.CB_PicoSettingsButton.show()
 
 	def open_PicoSettingsWindow(self) -> None:
