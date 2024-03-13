@@ -976,11 +976,14 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 	
 	def listening_uart_thread(self):
 		"""Listen to the UART and print the received data"""
+		
 		while True:
-			for i in range(3):
-				if self.uart_serial_array[i]:
-					if self.uart_serial_array[i].in_waiting > 0:
-						logger.debug(self.uart_serial_array[i].readline().decode('utf-8').rstrip())
+			
+			for index in range(3):
+				ser = self.uart_serial_array[index]
+				if ser:
+					if ser.in_waiting > 0:
+						logger.debug(ser.readline().decode('utf-8').rstrip())
 			time.sleep(0.1)
 
 		
