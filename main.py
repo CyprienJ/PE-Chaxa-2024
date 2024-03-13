@@ -701,7 +701,8 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 
 		except:
 			logger.error("Failed to set mux")
-	def listening_uart(self):
+			
+	def listen_uart(self):
 		"""Listen to the UART and print the received data"""
 		
 		while True:
