@@ -701,7 +701,7 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 
 		except:
 			logger.error("Failed to set mux")
-			
+
 	def listen_uart(self):
 		"""Listen to the UART and print the received data"""
 		
@@ -977,20 +977,25 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 		new_key = [i.value() for i in self.number_AES_spinBox]
 		
 
-		for i in range(3):			
-			try:
-				#change of key
+		try:
+			#change of key
+			for i in range(3):			
 				self.send_char('J', i)
-				for j in self.number_AES_spinBox:
-					logger.debug(chr(self.base10tohex(j.value())[0]))
-					self.send_char(chr(self.base10tohex(j.value())[0]), i)
-					logger.debug(chr(self.base10tohex(j.value())[1]))
-					self.send_char(chr(self.base10tohex(j.value())[1]), i)
-					
-				logger.debug('AES Key changed')
-			except:
-				logger.debug('Unable to change AES Key')
-	
+
+			for j in self.number_AES_spinBox:
+				logger.debug(self.base10tohex(j.value())[0])
+				logger.debug(self.base10tohex(j.value())[1])
+				
+				for i in range(3):
+
+					self.send_char(self.base10tohex(j.value()[0]), i)
+					self.send_char(self.base10tohex(j.value())[1], i)
+				
+			logger.debug('AES Key changed')
+		except:
+			logger.debug('Unable to change AES Key')
+
+
 
 
 		
