@@ -701,7 +701,19 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 
 		except:
 			logger.error("Failed to set mux")
-
+	def listening_uart(self):
+		"""Listen to the UART and print the received data"""
+		
+		while True:
+			
+			for index in range(3):
+				ser = self.uart_serial_array[index]
+				if ser:
+					if ser.in_waiting > 0:
+						logger.debug(ser.readline().decode('utf-8').rstrip())
+			time.sleep(0.1)
+	
+	
 	def init_UART(self) -> None:
 		"""Uart initialisation. Check on which port is connected each microcontroller"""
 		PORTLIST = ["/dev/ttyUSB0", "/dev/ttyUSB1", "/dev/ttyUSB2"]
@@ -978,17 +990,7 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 			except:
 				logger.debug('Unable to change AES Key')
 	
-	def listening_uart_thread(self):
-		"""Listen to the UART and print the received data"""
-		
-		while True:
-			
-			for index in range(3):
-				ser = self.uart_serial_array[index]
-				if ser:
-					if ser.in_waiting > 0:
-						logger.debug(ser.readline().decode('utf-8').rstrip())
-			time.sleep(0.1)
+
 
 		
 
