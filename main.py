@@ -986,9 +986,6 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 				self.send_char('J', i)
 
 			for j in self.number_AES_spinBox:
-				logger.debug(self.base10tohex(j.value())[0])
-				logger.debug(self.base10tohex(j.value())[1])
-				
 				for i in range(3):
 
 					self.send_char(self.base10tohex(j.value())[0], i)
