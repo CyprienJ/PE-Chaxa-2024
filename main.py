@@ -711,7 +711,7 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 				ser = self.uart_serial_array[index]
 				if ser:
 					try:
-						logger.debug(ser.readline().decode('utf-8').rstrip())
+						logger.debug('ser',ser.readline().decode('utf-8').rstrip())
 					except:
 						_=_
 				
