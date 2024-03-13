@@ -990,7 +990,7 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 				
 				for i in range(3):
 
-					self.send_char(self.base10tohex(j.value()[0]), i)
+					self.send_char(self.base10tohex(j.value())[0], i)
 					self.send_char(self.base10tohex(j.value())[1], i)
 				
 			logger.debug('AES Key changed')
