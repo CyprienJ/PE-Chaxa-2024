@@ -735,6 +735,10 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 				logger.debug(f"{port_names[i]} on port {self.uart_port_array[i]}")
 			except:
 				logger.warning(f"Failed to set {port_names[i]}")
+		
+		#begin listenging thread
+		self.uart_thread = threading.Thread(target=self.listen_uart)
+		self.uart_thread.start()
 				
 		
 	def init_GPIO(self) -> None:
@@ -999,8 +1003,7 @@ if __name__ == "__main__":
 	logger = set_logging(logging_level="DEBUG", logging_file=False)
 	app = QApplication(sys.argv)
 	form = MainWindow()
-	thread = threading.Thread(target=MainWindow.listening_uart_thread, args=(MainWindow,))
-	thread.start()
+	
 	form.show()
 	app.exec_()
 
