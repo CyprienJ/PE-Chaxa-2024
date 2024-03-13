@@ -711,7 +711,6 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 				ser = self.uart_serial_array[index]
 				if ser:
 					try:
-						logger.debug('ser')
 						logger.debug(ser.readline().decode('utf-8').rstrip())
 					except:
 						#wait 0.1s before trying again
