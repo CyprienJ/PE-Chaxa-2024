@@ -710,9 +710,11 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 			for index in range(3):
 				ser = self.uart_serial_array[index]
 				if ser:
-					if ser.in_waiting > 0:
+					try:
 						logger.debug(ser.readline().decode('utf-8').rstrip())
-			time.sleep(0.1)
+					except:
+						_=_
+				
 	
 	
 	def init_UART(self) -> None:
