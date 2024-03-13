@@ -751,6 +751,7 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 				logger.warning(f"Failed to set {port_names[i]}")
 		
 		#begin listenging thread
+		self.uart_thread = [None for _ in range(3)]
 		for i in range(3):
 			self.uart_thread[i] = threading.Thread(target=self.listen_uart, args=(i,))
 			self.uart_thread[i].start()
