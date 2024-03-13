@@ -16,3 +16,7 @@
 | N | call new PIN function, ie enter a new cardPIN if g_authenticated = BOOL_TRUE | 
 | E | encryption, AES-128 | 
 | K | enter AES-128 key and derive round keys (require g_authenticated = BOOL_TRUE) | 
+| Z | change AES-128 key (dont care to be authenticated)
+
+
+

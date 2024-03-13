@@ -32,9 +32,11 @@ class Ui_MainWindow(object):
         self.stackedWidget = QtWidgets.QStackedWidget(self.centralwidget)
         self.stackedWidget.setStyleSheet("background-color: transparent;")
         self.stackedWidget.setObjectName("stackedWidget")
+
         # Signal visualization Widget
         self.signals_visualization_page = QtWidgets.QWidget()
         self.signals_visualization_page.setObjectName("signals_visualization_page")
+
         # Main vertical Layout
         self.main_vertical_layout = QtWidgets.QVBoxLayout(self.signals_visualization_page)
         self.main_vertical_layout.setAlignment(Qt.AlignmentFlag.AlignHCenter)
@@ -49,19 +51,18 @@ class Ui_MainWindow(object):
         self.CB_PicoSettingsButton.setFont(QtGui.QFont("Lucida Grande", 11))
         self.CB_PicoSettingsButton.setStyleSheet("background-color: rgb(238, 238, 236);")
         self.CB_PicoSettingsButton.setObjectName("CB_PicoSettingsButton")
-
-
-
+        # Why isn't there an addWidget call ?
 
         # Barre latérale avec QVBoxLayout
         self.sidebar_widget = QtWidgets.QWidget(self.centralwidget)
-        self.sidebar_widget.setMinimumSize(QtCore.QSize(50, 30))
+        self.sidebar_widget.setMinimumSize(QtCore.QSize(70, 30))
         self.sidebar_layout = QtWidgets.QVBoxLayout(self.sidebar_widget)
         self.sidebar_layout.setContentsMargins(10, 10, 10, 10)  # Marge pour l'esthétique
         self.sidebar_layout.setAlignment(QtCore.Qt.AlignmentFlag.AlignTop)
-        # self.sidebar_layout.addWidget(QtWidgets.QLabel("Contenu de la barre latérale"))
+        self.sidebar_layout.addWidget(QtWidgets.QLabel("AES Key"))
         # Ajouter la barre latérale à droite du stackedWidget
         self.gridLayout_5.addWidget(self.sidebar_widget, 1, 1, 1, 1)
+
 
 ################################################################################################
 ################################################################################################
@@ -79,6 +80,15 @@ class Ui_MainWindow(object):
             self.number_AES_spinBox[i].setObjectName("number_AES" + str(i) + "_spinBox")
             self.number_AES_spinBox[i].setDisplayIntegerBase(16)
             self.sidebar_layout.addWidget(self.number_AES_spinBox[i])
+
+        # Change button
+        self.Change_AES_Key_Button = QtWidgets.QPushButton(self.sidebar_widget)
+        self.Change_AES_Key_Button.setMinimumSize(QtCore.QSize(220, 23))
+        self.Change_AES_Key_Button.setMaximumSize(QtCore.QSize(220, 23))
+        self.Change_AES_Key_Button.setFont(QtGui.QFont("Lucida Grande", 10))
+        self.Change_AES_Key_Button.setStyleSheet("background-color: rgb(238, 238, 236);")
+        self.Change_AES_Key_Button.setObjectName("Apply_New_AES_key")
+        self.sidebar_layout.addWidget(self.Change_AES_Key_Button)
 
 
         # Bottom Horizontal Layout
@@ -105,6 +115,7 @@ class Ui_MainWindow(object):
         self.labelPlainText.setFont(QtGui.QFont("Lucida Grande", 9))
         self.labelPlainText.setObjectName("labelPlainText")
         self.gridLayout.addWidget(self.labelPlainText, 1, 0, 1, 1)
+
         # CipherText Label
         self.labelCipherText = QtWidgets.QLabel(self.Text_encryption_groupBox)
         self.labelCipherText.setMinimumSize(QtCore.QSize(110, 0))
@@ -112,6 +123,7 @@ class Ui_MainWindow(object):
         self.labelCipherText.setFont(QtGui.QFont("Lucida Grande", 9))
         self.labelCipherText.setObjectName("labelCipherText")
         self.gridLayout.addWidget(self.labelCipherText, 2, 0, 1, 1)
+
         # CipherText label zone
         self.CipherText_display_label = QtWidgets.QLabel(self.Text_encryption_groupBox)
         self.CipherText_display_label.setMinimumSize(QtCore.QSize(500, 23))
@@ -120,6 +132,7 @@ class Ui_MainWindow(object):
         self.CipherText_display_label.setText("")
         self.CipherText_display_label.setObjectName("CipherText_display_label")
         self.gridLayout.addWidget(self.CipherText_display_label, 2, 2, 1, 1)
+
         # Generate PlainText randomly Button
         self.PlainText_random_Button = QtWidgets.QPushButton(self.Text_encryption_groupBox)
         self.PlainText_random_Button.setMinimumSize(QtCore.QSize(220, 23))
@@ -128,6 +141,7 @@ class Ui_MainWindow(object):
         self.PlainText_random_Button.setStyleSheet("background-color: rgb(238, 238, 236);")
         self.PlainText_random_Button.setObjectName("PlainText_random_Button")
         self.gridLayout.addWidget(self.PlainText_random_Button, 1, 5, 1, 1)
+
         # PlainText input zone
         self.PlainText_input = QtWidgets.QLineEdit(self.Text_encryption_groupBox)
         self.PlainText_input.setMinimumSize(QtCore.QSize(500, 23))
@@ -465,6 +479,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "ChaXa Demonstrator"))
+        self.Change_AES_Key_Button.setText(_translate("MainWindow", "Apply changes"))
         self.CB_PicoSettingsButton.setText(_translate("MainWindow", "Picoscope Settings"))
         self.StartAES_Button.setText(_translate("MainWindow", "Start AES encryption"))
         self.StopAES_Button.setText(_translate("MainWindow", "Stop AES encryption"))

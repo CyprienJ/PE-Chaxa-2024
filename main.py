@@ -109,13 +109,13 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 		self.init_graphs()
 		self.set_signal_resolution(None)
 		self.stackedWidget.setCurrentIndex(1)
-		self.CB_PicoSettingsButton.hide()
+		# self.CB_PicoSettingsButton.hide()
 		self.StopAES_Button.hide()
-		
+		# self.sidebar_widget.hide()
 		############################################
 		##               Picoscope                ##
 		############################################
-		
+
 		try:
 			pico_com.init_picoscope()
 		except:
@@ -138,6 +138,8 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 			self.default_trace_check_box[index].stateChanged.connect(self.check_default_trace)
 		for i in range(3):
 			self.start_analysis_buttons[i].clicked.connect(partial(self.OnStartAnalysisButton,i))
+		
+		self.Change_AES_Key_Button.clicked.connect(self.AES_Change_Button_Clicked)
 
 		############################################
 		##              Shortcuts                 ##
@@ -444,13 +446,13 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 			self.StartAES_Button.show()
 			self.number_acquisitions_label.show()
 			self.number_acquisitions_spinBox.show()
-			self.sidebar_layout.show()
+			#self.sidebar_layout.show()
 		else:
 			self.Text_encryption_groupBox.hide()
 			self.StartAES_Button.hide()
 			self.number_acquisitions_label.hide()
 			self.number_acquisitions_spinBox.hide()
-			self.sidebar_layout.hide()
+			#self.sidebar_layout.hide()
 	
 	def is_plaintext_correct(self) -> bool:
 		""" Return True if the plaintext has 32 hexa characters """
@@ -752,17 +754,13 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 		self.on_change_tab(0)
 		self.CB_PicoSettingsButton.show()
 
+
+
 	def open_PicoSettingsWindow(self) -> None:
 		"""Open Picoscope settings window"""
 
 		self._pico_window = PicoSettingsWindow()
 		self._pico_window.show()
-	
-	def open_AESSettingsWindow(self) -> None:
-		"""Open AES settings window"""
-
-		self._aes_window = AESSettingsWindow()
-		self._aes_window.show()
 
 	def on_plain_text_random_button(self) -> None:
 		"""Randomly generate 16 bytes and udpate the PlainText widget"""
@@ -946,6 +944,35 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 		self.loading_bars_labels[index].show()
 		self.loading_bars[index].show()
 		self.key_groupbox[index].show()
+
+
+	def base10tohex(self, base10: int) -> str:
+		"""Convert a base 10 number to a 2 characters hexa string"""
+		hexa = hex(base10)[2:]
+		if len(hexa) == 1:
+			hexa = "0" + hexa
+		return hexa
+
+
+
+	def AES_Change_Button_Clicked(self) -> None:
+		new_key = [i.value() for i in self.number_AES_spinBox]
+		
+
+		for i in range(3):			
+			try:
+				#change of key
+				self.send_char('J', i)
+				for j in self.number_AES_spinBox:
+					logger.debug(chr(self.base10tohex(j.value())[0]))
+					self.send_char(chr(self.base10tohex(j.value())[0]), i)
+					logger.debug(chr(self.base10tohex(j.value())[1]))
+					self.send_char(chr(self.base10tohex(j.value())[1]), i)
+					
+				logger.debug('AES Key changed')
+			except:
+				logger.debug('Unable to change AES Key')
+
 		
 
 class AboutAppWindow(QtWidgets.QDialog, AboutWindow.Ui_AboutAppDialog):
@@ -961,3 +988,5 @@ if __name__ == "__main__":
 	form = MainWindow()
 	form.show()
 	app.exec_()
+
+	
