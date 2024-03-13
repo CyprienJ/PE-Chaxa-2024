@@ -4,6 +4,7 @@ from PyQt5.QtGui import QKeySequence
 import pyqtgraph
 import pyqtgraph.exporters
 from PyQt5.QtCore import QTimer
+import threading
 
 import mainWindow
 import AboutWindow
@@ -972,6 +973,15 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 				logger.debug('AES Key changed')
 			except:
 				logger.debug('Unable to change AES Key')
+	
+	def listening_uart_thread(self):
+		"""Listen to the UART and print the received data"""
+		while True:
+			for i in range(3):
+				if self.uart_serial_array[i]:
+					if self.uart_serial_array[i].in_waiting > 0:
+						logger.debug(self.uart_serial_array[i].readline().decode('utf-8').rstrip())
+			time.sleep(0.1)
 
 		
 
@@ -983,6 +993,8 @@ class AboutAppWindow(QtWidgets.QDialog, AboutWindow.Ui_AboutAppDialog):
 
 
 if __name__ == "__main__":
+	thread = threading.Thread(target=MainWindow.listening_uart_thread, args=(MainWindow,))
+	thread.start()
 	logger = set_logging(logging_level="DEBUG", logging_file=False)
 	app = QApplication(sys.argv)
 	form = MainWindow()
