@@ -702,19 +702,17 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 		except:
 			logger.error("Failed to set mux")
 
-	def listen_uart(self):
+	def listen_uart(self, index):
 		"""Listen to the UART and print the received data"""
-		
-		while True:
+		ser = self.uart_serial_array[index]
 			
-			for index in range(3):
-				ser = self.uart_serial_array[index]
-				if ser:
-					try:
-						logger.debug(ser.readline().decode('utf-8').rstrip())
-					except:
-						#wait 0.1s before trying again
-						time.sleep(0.1)
+		while True:
+			if ser:
+				try:
+					logger.debug(ser.readline().decode('utf-8').rstrip())
+				except:
+					#wait 0.001s before trying again
+					time.sleep(0.001)
 				
 	
 	
@@ -753,8 +751,9 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 				logger.warning(f"Failed to set {port_names[i]}")
 		
 		#begin listenging thread
-		self.uart_thread = threading.Thread(target=self.listen_uart)
-		self.uart_thread.start()
+		for i in range(3):
+			self.uart_thread[i] = threading.Thread(target=self.listen_uart, args=(i,))
+			self.uart_thread[i].start()
 				
 		
 	def init_GPIO(self) -> None:
