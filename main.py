@@ -993,11 +993,11 @@ class AboutAppWindow(QtWidgets.QDialog, AboutWindow.Ui_AboutAppDialog):
 
 
 if __name__ == "__main__":
-	thread = threading.Thread(target=MainWindow.listening_uart_thread, args=(MainWindow,))
-	thread.start()
 	logger = set_logging(logging_level="DEBUG", logging_file=False)
 	app = QApplication(sys.argv)
 	form = MainWindow()
+	thread = threading.Thread(target=MainWindow.listening_uart_thread, args=(MainWindow,))
+	thread.start()
 	form.show()
 	app.exec_()
 
