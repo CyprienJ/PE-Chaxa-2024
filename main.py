@@ -714,7 +714,8 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 						logger.debug('ser')
 						logger.debug(ser.readline().decode('utf-8').rstrip())
 					except:
-						_=_
+						#wait 0.1s before trying again
+						time.sleep(0.1)
 				
 	
 	
