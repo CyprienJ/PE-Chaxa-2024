@@ -750,12 +750,12 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 			except:
 				logger.warning(f"Failed to set {port_names[i]}")
 		
-		#begin listenging thread
-		self.uart_thread = [None for _ in range(3)]
-		for i in range(3):
-			self.uart_thread[i] = threading.Thread(target=self.listen_uart, args=(i,))
-			self.uart_thread[i].start()
-				
+		# #begin listenging thread
+		# self.uart_thread = [None for _ in range(3)]
+		# for i in range(3):
+		# 	self.uart_thread[i] = threading.Thread(target=self.listen_uart, args=(i,))
+		# 	self.uart_thread[i].start()
+		# logger.debug("UART threads started. Waiting for messages...")
 		
 	def init_GPIO(self) -> None:
 		""" Init GPIOs 2 and 3 to pilot the mux"""
