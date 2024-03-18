@@ -133,7 +133,7 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 		self.PlainText_random_Button.clicked.connect(self.on_plain_text_random_button)
 		self.actionQuit.triggered.connect(self.close)
 		self.actionAbout_the_app.triggered.connect(self.open_AboutAppWindow)
-		self.Home_LaunchButton.clicked.connect(self.home_launch_button_clicked)
+		self.Side_Channel_LaunchButton.clicked.connect(self.side_channel_launch_button_clicked)
 		self.PlainText_input.textChanged.connect(self.text_changed)
 		for index in range(4):
 			self.default_trace_check_box[index].stateChanged.connect(self.check_default_trace)
@@ -147,7 +147,7 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 		############################################
 
 		self.HomeShortcutEnter = QShortcut(QKeySequence("o"), self)
-		self.HomeShortcutEnter.activated.connect(self.home_launch_button_clicked)
+		self.HomeShortcutEnter.activated.connect(self.side_channel_launch_button_clicked)
 
 		self.SendShortcut = QShortcut(QKeySequence("s"), self)
 		self.SendShortcut.activated.connect(self.on_start_AES_button)
@@ -767,7 +767,7 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 		except:
 			logger.warning('Failed to initialise GPIO')
 		
-	def home_launch_button_clicked(self) -> None:
+	def side_channel_launch_button_clicked(self) -> None:
 		"""Show and initialise signal visualisation window"""
 
 		self.stackedWidget.setCurrentIndex(0)
