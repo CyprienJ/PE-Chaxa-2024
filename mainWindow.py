@@ -398,14 +398,23 @@ class Ui_MainWindow(object):
         self.Home_label_picture.setObjectName("Home_label_picture")
         self.Home_gridLayout.addWidget(self.Home_label_picture, 1, 1, 1, 1)
 
-        # Home launch Button
-        self.Home_LaunchButton = QtWidgets.QPushButton(self.home_page)
-        self.Home_LaunchButton.setMinimumSize(QtCore.QSize(250, 30))
-        self.Home_LaunchButton.setMaximumSize(QtCore.QSize(300, 30))
-        self.Home_LaunchButton.setFont(QtGui.QFont("Lucida Grande", 12, QtGui.QFont.Bold))
-        self.Home_LaunchButton.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(204, 0, 0, 255), stop:1 rgba(255, 183, 183, 255));""selection-color: rgb(46, 52, 54);""selection-background-color: rgb(238, 238, 236);""color: rgb(255, 255, 255);")
-        self.Home_LaunchButton.setObjectName("Home_LaunchButton")
-        self.Home_gridLayout.addWidget(self.Home_LaunchButton, 5, 0, 1, 1)
+        # Side Channel launch Button
+        self.Side_Channel_LaunchButton = QtWidgets.QPushButton(self.home_page)
+        self.Side_Channel_LaunchButton.setMinimumSize(QtCore.QSize(250, 30))
+        self.Side_Channel_LaunchButton.setMaximumSize(QtCore.QSize(300, 30))
+        self.Side_Channel_LaunchButton.setFont(QtGui.QFont("Lucida Grande", 12, QtGui.QFont.Bold))
+        self.Side_Channel_LaunchButton.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(204, 0, 0, 255), stop:1 rgba(255, 183, 183, 255));""selection-color: rgb(46, 52, 54);""selection-background-color: rgb(238, 238, 236);""color: rgb(255, 255, 255);")
+        self.Side_Channel_LaunchButton.setObjectName("SideChannel_LaunchButton")
+        self.Home_gridLayout.addWidget(self.Side_Channel_LaunchButton, 5, 0, 1, 1)
+
+        # Injection Fault launch Button
+        self.Injection_Fault_LaunchButton = QtWidgets.QPushButton(self.home_page)
+        self.Injection_Fault_LaunchButton.setMinimumSize(QtCore.QSize(250, 30))
+        self.Injection_Fault_LaunchButton.setMaximumSize(QtCore.QSize(300, 30))
+        self.Injection_Fault_LaunchButton.setFont(QtGui.QFont("Lucida Grande", 12, QtGui.QFont.Bold))
+        self.Injection_Fault_LaunchButton.setStyleSheet("background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(204, 0, 0, 255), stop:1 rgba(255, 183, 183, 255));""selection-color: rgb(46, 52, 54);""selection-background-color: rgb(238, 238, 236);""color: rgb(255, 255, 255);")
+        self.Injection_Fault_LaunchButton.setObjectName("Injection_Fault_LaunchButton")
+        self.Home_gridLayout.addWidget(self.Injection_Fault_LaunchButton, 6, 0, 1, 1) 
 
         # Spacer to move title in the center of the home page
         spacerItem12 = QtWidgets.QSpacerItem(20, 80, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
@@ -507,7 +516,8 @@ class Ui_MainWindow(object):
             self.key_groupbox[i].setTitle(_translate("MainWindow", "The encryption key is: "))
         self.Home_label_SubTitle.setText(_translate("MainWindow", "Chaxa Demonstrator App aims at proving ChaXa\ndevice efficiency"))
         self.Home_label_title.setText(_translate("MainWindow", "ChaXa Demonstrator App"))
-        self.Home_LaunchButton.setText(_translate("MainWindow", "Launch Signals Visualization"))
+        self.Side_Channel_LaunchButton.setText(_translate("MainWindow", "Launch Side Channel Interface"))
+        self.Injection_Fault_LaunchButton.setText(_translate("MainWindow", "Launch Injection Fault Interface"))
         self.menuFile.setTitle(_translate("MainWindow", "File"))
         self.menuAbout.setTitle(_translate("MainWindow", "About"))
         self.actionQuit.setText(_translate("MainWindow", "Quit"))
