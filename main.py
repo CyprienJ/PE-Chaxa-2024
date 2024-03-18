@@ -134,6 +134,7 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 		self.actionQuit.triggered.connect(self.close)
 		self.actionAbout_the_app.triggered.connect(self.open_AboutAppWindow)
 		self.Side_Channel_LaunchButton.clicked.connect(self.side_channel_launch_button_clicked)
+		self.Injection_Fault_LaunchButton.clicked.connect(self.injection_fault_launch_button_clicked)
 		self.PlainText_input.textChanged.connect(self.text_changed)
 		for index in range(4):
 			self.default_trace_check_box[index].stateChanged.connect(self.check_default_trace)
@@ -146,12 +147,12 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 		##              Shortcuts                 ##
 		############################################
 
-		self.HomeShortcutEnter = QShortcut(QKeySequence("o"), self)
-		self.HomeShortcutEnter.activated.connect(self.side_channel_launch_button_clicked)
+		self.InjectionFaultShortcutEnter = QShortcut(QKeySequence("i"), self)
+		self.InjectionFaultShortcutEnter.activated.connect(self.injection_fault_launch_button_clicked)
 
-		self.SendShortcut = QShortcut(QKeySequence("s"), self)
-		self.SendShortcut.activated.connect(self.on_start_AES_button)
-		
+		self.SideChanelShortcutEnter = QShortcut(QKeySequence("s"), self)
+		self.SideChanelShortcutEnter.activated.connect(self.side_channel_launch_button_clicked)
+
 		self.QuitShortcut = QShortcut(QKeySequence("q"), self)
 		self.QuitShortcut.activated.connect(self.close)
 		
@@ -775,8 +776,12 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 		self.on_change_tab(0)
 		self.CB_PicoSettingsButton.show()
 
+	def injection_fault_launch_button_clicked(self) -> None:
+		"""Show and initialise fault injection window"""
 
-
+		self.on_change_tab(0)
+	
+	
 	def open_PicoSettingsWindow(self) -> None:
 		"""Open Picoscope settings window"""
 
