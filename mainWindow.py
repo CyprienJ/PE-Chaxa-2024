@@ -347,8 +347,17 @@ class Ui_MainWindow(object):
                 self.key_h_layout[i].addWidget(self.key_labels[i][j])
 
 
+        # Get screen size
+        screen = QtWidgets.QDesktopWidget().screenGeometry()
+
+        # Widget for injection fault
+        self.injection_Fault_widget = QtWidgets.QWidget(self.centralwidget)
+        self.injection_Fault_widget.setMinimumSize(QtCore.QSize(screen.width() * 0.5, screen.height() * 0.5))
+
+        # QVBox Layout for Injection Fault panel
         self.Injection_Fault_v_layout = QtWidgets.QVBoxLayout()
         self.Injection_Fault_v_layout.setObjectName("Injection_Fault_v_layout")
+        self.injection_fault_widget.setLayout(self.Injection_Fault_v_layout)
 
         #3 horizontal layouts in Injection_Fault_v_layout
         self.Injection_Fault_h_layout = [QtWidgets.QHBoxLayout() for _ in range(3)]

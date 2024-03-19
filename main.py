@@ -754,7 +754,7 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 		
 	def init_GPIO(self) -> None:
 		""" Init GPIOs 2 and 3 to pilot the mux"""
-		GPIO.setmode(GPIO.BCM)
+		#GPIO.setmode(GPIO.BCM)
 		try:
 			for i in range(2,4):
 				GPIO.setup(i, GPIO.OUT)
@@ -774,7 +774,7 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 	def injection_fault_launch_button_clicked(self) -> None:
 		"""Show and initialise fault injection window"""
 
-		self.on_change_tab(0)
+		self.injection_Fault_widget.show()
 	
 	
 	def open_PicoSettingsWindow(self) -> None:
