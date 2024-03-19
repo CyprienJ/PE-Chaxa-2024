@@ -25,6 +25,8 @@ from functools import partial
 
 from mainWindow import RED_COLOR, BLUE_COLOR, VIOLET_COLOR, LIGHT_BLUE_COLOR
 
+from utils import analysis, load_traces
+
 SUCCESS = 0
 FAILURE = -1
 
@@ -966,6 +968,11 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 		self.loading_bars_labels[index].show()
 		self.loading_bars[index].show()
 		self.key_groupbox[index].show()
+		traces, plaintexts = load_traces(index)
+		key = analysis(traces, plaintexts)
+		for i in range(16):
+			self.key_labels[index][i].setText(key[i])
+		logger.debug(key)
 
 
 	def base10tohex(self, base10: int) -> str:
