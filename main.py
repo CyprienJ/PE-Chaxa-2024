@@ -107,6 +107,7 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 		self.CB_PicoSettingsButton.hide()
 		self.StopAES_Button.hide()
 		self.sidebar_widget.hide()
+		self.injection_Fault_widget.hide()
 		############################################
 		##               Picoscope                ##
 		############################################
