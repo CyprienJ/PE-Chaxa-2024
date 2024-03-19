@@ -110,9 +110,9 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 		self.init_graphs()
 		self.set_signal_resolution(None)
 		self.stackedWidget.setCurrentIndex(1)
-		# self.CB_PicoSettingsButton.hide()
+		self.CB_PicoSettingsButton.hide()
 		self.StopAES_Button.hide()
-		# self.sidebar_widget.hide()
+		self.sidebar_widget.hide()
 		############################################
 		##               Picoscope                ##
 		############################################
@@ -775,6 +775,7 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 		self.tabWidget.setCurrentIndex(0)
 		self.on_change_tab(0)
 		self.CB_PicoSettingsButton.show()
+		self.sidebar_widget.show()
 
 	def injection_fault_launch_button_clicked(self) -> None:
 		"""Show and initialise fault injection window"""

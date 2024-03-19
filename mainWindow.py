@@ -51,25 +51,16 @@ class Ui_MainWindow(object):
         self.CB_PicoSettingsButton.setFont(QtGui.QFont("Lucida Grande", 11))
         self.CB_PicoSettingsButton.setStyleSheet("background-color: rgb(238, 238, 236);")
         self.CB_PicoSettingsButton.setObjectName("CB_PicoSettingsButton")
-        # Why isn't there an addWidget call ?
 
-        # Barre latérale avec QVBoxLayout
+        # Sidebar with QVBoxLayout
         self.sidebar_widget = QtWidgets.QWidget(self.centralwidget)
         self.sidebar_widget.setMinimumSize(QtCore.QSize(70, 30))
         self.sidebar_layout = QtWidgets.QVBoxLayout(self.sidebar_widget)
-        self.sidebar_layout.setContentsMargins(10, 10, 10, 10)  # Marge pour l'esthétique
+        self.sidebar_layout.setContentsMargins(10, 10, 10, 10)  # Left, top, right, bottom
         self.sidebar_layout.setAlignment(QtCore.Qt.AlignmentFlag.AlignTop)
         self.sidebar_layout.addWidget(QtWidgets.QLabel("AES Key"))
-        # Ajouter la barre latérale à droite du stackedWidget
         self.gridLayout_5.addWidget(self.sidebar_widget, 1, 1, 1, 1)
 
-
-################################################################################################
-################################################################################################
-################################################################################################
-################################################################################################
-################################################################################################
-        
         # Change the AES key
         self.number_AES_spinBox = [QtWidgets.QSpinBox() for _ in range(16)]
         for i in range(16):
