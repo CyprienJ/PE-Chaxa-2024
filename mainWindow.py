@@ -44,7 +44,7 @@ class Ui_MainWindow(object):
         self.main_vertical_layout.setObjectName("main_vertical_layout")
 
         # Picoscope Settings Button
-        self.CB_PicoSettingsButton = QtWidgets.QPushButton(self.centralwidget)
+        self.CB_PicoSettingsButton = QtWidgets.QPushButton(self.stackedWidget)
         self.CB_PicoSettingsButton.move(15,15)
         self.CB_PicoSettingsButton.setMinimumSize(QtCore.QSize(160, 30))
         self.CB_PicoSettingsButton.setMaximumSize(QtCore.QSize(500, 16777215))
@@ -370,7 +370,7 @@ class Ui_MainWindow(object):
         for i in range(2):
             self.injection_fault_h_lines[i].setFrameShape(QtWidgets.QFrame.HLine)
             self.Injection_Fault_v_layout.insertWidget(2*i+1, self.injection_fault_h_lines[i])
-            
+
 
 
         # Home Page Layout/Widget
