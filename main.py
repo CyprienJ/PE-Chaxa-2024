@@ -139,11 +139,11 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 		##              Shortcuts                 ##
 		############################################
 
-		self.InjectionFaultShortcutEnter = QShortcut(QKeySequence("i"), self)
-		self.InjectionFaultShortcutEnter.activated.connect(self.injection_fault_launch_button_clicked)
-
 		self.SideChanelShortcutEnter = QShortcut(QKeySequence("s"), self)
 		self.SideChanelShortcutEnter.activated.connect(self.side_channel_launch_button_clicked)
+
+		self.InjectionFaultShortcutEnter = QShortcut(QKeySequence("i"), self)
+		self.InjectionFaultShortcutEnter.activated.connect(self.injection_fault_launch_button_clicked)
 
 		self.QuitShortcut = QShortcut(QKeySequence("q"), self)
 		self.QuitShortcut.activated.connect(self.close)
