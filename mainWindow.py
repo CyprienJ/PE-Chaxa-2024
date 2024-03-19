@@ -347,7 +347,31 @@ class Ui_MainWindow(object):
                 self.key_h_layout[i].addWidget(self.key_labels[i][j])
 
 
+        self.Injection_Fault_v_layout = QtWidgets.QVBoxLayout()
+        self.Injection_Fault_v_layout.setObjectName("Injection_Fault_v_layout")
+
+        #3 horizontal layouts in Injection_Fault_v_layout
+        self.Injection_Fault_h_layout = [QtWidgets.QHBoxLayout() for _ in range(3)]
+        self.Injection_Fault_left_v_layout = [QtWidgets.QVBoxLayout() for _ in range(3)]
+        self.Injection_Fault_right_v_layout = [QtWidgets.QVBoxLayout() for _ in range(3)]
+        for i in range(3):
+            self.Injection_Fault_v_layout.addLayout(self.Injection_Fault_h_layout[i])
+            self.Injection_Fault_h_layout[i].addLayout(self.Injection_Fault_left_v_layout[i])
+            self.Injection_Fault_h_layout[i].addLayout(self.Injection_Fault_right_v_layout[i])
+
+        # Vertical lines to separe left and right part
+        self.injection_fault_v_lines = [QtWidgets.QFrame() for _ in range(3)]
+        for i in range(3):
+            self.injection_fault_v_lines[i].setFrameShape(QtWidgets.QFrame.VLine)
+            self.Injection_Fault_h_layout[i].insertWidget(1, self.injection_fault_v_lines[i], alignment=QtCore.Qt.AlignLeft)
         
+        #Two lines to separe the three main horizontals layouts
+        self.injection_fault_h_lines = [QtWidgets.QFrame() for _ in range(2)]
+        for i in range(2):
+            self.injection_fault_h_lines[i].setFrameShape(QtWidgets.QFrame.HLine)
+            self.Injection_Fault_v_layout.insertWidget(2*i+1, self.injection_fault_h_lines[i])
+            
+
 
         # Home Page Layout/Widget
         self.home_page = QtWidgets.QWidget()

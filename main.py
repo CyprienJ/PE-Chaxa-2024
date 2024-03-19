@@ -86,9 +86,6 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 			self.number_AES_spinBox[i].setValue(standardKey[i])
 			self.number_AES[i] = self.number_AES_spinBox[i].value()
 
-		
-		
-
 		self.acquisition_loop_running = False
 		self.number_acquisitions_done = 0
 		self.acquisition_period_ms = 1000
@@ -443,13 +440,13 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 			self.StartAES_Button.show()
 			self.number_acquisitions_label.show()
 			self.number_acquisitions_spinBox.show()
-			#self.sidebar_layout.show()
+			self.sidebar_widget.show()
 		else:
 			self.Text_encryption_groupBox.hide()
 			self.StartAES_Button.hide()
 			self.number_acquisitions_label.hide()
 			self.number_acquisitions_spinBox.hide()
-			#self.sidebar_layout.hide()
+			self.sidebar_widget.hide()
 	
 	def is_plaintext_correct(self) -> bool:
 		""" Return True if the plaintext has 32 hexa characters """
