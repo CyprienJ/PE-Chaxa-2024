@@ -357,7 +357,7 @@ class Ui_MainWindow(object):
         # QVBox Layout for Injection Fault panel
         self.Injection_Fault_v_layout = QtWidgets.QVBoxLayout()
         self.Injection_Fault_v_layout.setObjectName("Injection_Fault_v_layout")
-        self.injection_fault_widget.setLayout(self.Injection_Fault_v_layout)
+        self.injection_Fault_widget.setLayout(self.Injection_Fault_v_layout)
 
         #3 horizontal layouts in Injection_Fault_v_layout
         self.Injection_Fault_h_layout = [QtWidgets.QHBoxLayout() for _ in range(3)]
