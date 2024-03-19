@@ -762,7 +762,7 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 		
 	def init_GPIO(self) -> None:
 		""" Init GPIOs 2 and 3 to pilot the mux"""
-		#GPIO.setmode(GPIO.BCM)
+		GPIO.setmode(GPIO.BCM)
 		try:
 			for i in range(2,4):
 				GPIO.setup(i, GPIO.OUT)
