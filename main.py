@@ -77,11 +77,6 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 		self.number_acquisitions_spinBox.setValue(1)
 		self.number_acquisitions = self.number_acquisitions_spinBox.value()
 		
-		###########################################################################################################################
-		###########################################################################################################################
-		###########################################################################################################################
-		###########################################################################################################################
-		###########################################################################################################################
 		self.number_AES = [0 for i in range(16)]
 		#AES spinBox definition
 		standardKey = [0x2b, 0x7e, 0x15, 0x16, 0x28, 0xae, 0xd2, 0xa6, 0xab, 0xf7, 0x15, 0x88, 0x09, 0xcf, 0x4f, 0x3c]
@@ -89,7 +84,7 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 			self.number_AES_spinBox[i].setRange(0, 255)
 			self.number_AES_spinBox[i].setSingleStep(1)
 			self.number_AES_spinBox[i].setValue(standardKey[i])
-			self.number_AES = self.number_AES_spinBox[i].value()
+			self.number_AES[i] = self.number_AES_spinBox[i].value()
 
 		
 		
