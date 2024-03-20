@@ -373,9 +373,7 @@ class Ui_MainWindow(object):
         qr = self.injection_Fault_widget.frameGeometry()
         cp = QtWidgets.QDesktopWidget().availableGeometry().center()
         qr.moveCenter(cp)
-        self.injection_Fault_widget.move(qr.topLeft())
-
-
+        
         # QVBox Layout for Injection Fault panel
         self.Injection_Fault_v_layout = QtWidgets.QVBoxLayout()
         self.Injection_Fault_v_layout.setObjectName("Injection_Fault_v_layout")
@@ -402,7 +400,35 @@ class Ui_MainWindow(object):
             self.injection_fault_h_lines[i].setFrameShape(QtWidgets.QFrame.HLine)
             self.Injection_Fault_v_layout.insertWidget(2*i+1, self.injection_fault_h_lines[i])
 
+        # text box for message in left layout for each box
+        self.injection_fault_text = [QtWidgets.QTextEdit() for _ in range(3)]
+        for i in range(3):
+            self.injection_fault_text[i].setMinimumSize(QtCore.QSize(400, 200))
+            self.injection_fault_text[i].setMaximumSize(QtCore.QSize(400, 200))
+            self.injection_fault_text[i].setFont(QtGui.QFont("Lucida Grande", 9))
+            self.Injection_Fault_left_v_layout[i].addWidget(self.injection_fault_text[i])
 
+        # horizontal layout in left layout for each box
+        self.injection_fault_left_bottom_h_layout = [QtWidgets.QHBoxLayout() for _ in range(3)]
+        for i in range(3):
+            self.Injection_Fault_left_v_layout[i].addLayout(self.injection_fault_left_bottom_h_layout[i])
+        
+        #text box for PIN code in bottom left layout for each box
+        self.injection_fault_pin = [QtWidgets.QLineEdit() for _ in range(3)]
+        for i in range(3):
+            self.injection_fault_pin[i].setMinimumSize(QtCore.QSize(100, 30))
+            self.injection_fault_pin[i].setMaximumSize(QtCore.QSize(100, 30))
+            self.injection_fault_pin[i].setFont(QtGui.QFont("Lucida Grande", 9))
+            self.injection_fault_left_bottom_h_layout[i].addWidget(self.injection_fault_pin[i])
+        
+        # Button to encode message in bottom left layout for each box
+        self.injection_fault_encode_button = [QtWidgets.QPushButton() for _ in range(3)]
+        for i in range(3):
+            self.injection_fault_encode_button[i].setMinimumSize(QtCore.QSize(100, 30))
+            self.injection_fault_encode_button[i].setMaximumSize(QtCore.QSize(100, 30))
+            self.injection_fault_encode_button[i].setFont(QtGui.QFont("Lucida Grande", 9))
+            self.injection_fault_encode_button[i].setStyleSheet("background-color: rgb(230, 0, 0);""color: rgb(255, 255, 255);")
+            self.injection_fault_left_bottom_h_layout[i].addWidget(self.injection_fault_encode_button[i])
 
         # Home Page Layout/Widget
         self.home_page = QtWidgets.QWidget()
@@ -571,8 +597,12 @@ class Ui_MainWindow(object):
         self.menuAbout.setTitle(_translate("MainWindow", "About"))
         self.actionQuit.setText(_translate("MainWindow", "Quit"))
         self.actionAbout_the_app.setText(_translate("MainWindow", "About the app..."))
-
-
+        
+        #injection fault part
+        for i in range(3):
+            self.injection_fault_encode_button[i].setText(_translate("MainWindow", "Encode"))
+            self.injection_fault_text[i].setPlaceholderText(_translate("MainWindow", "Enter your message here"))
+            self.injection_fault_pin[i].setPlaceholderText(_translate("MainWindow", "PIN code"))
 
 if __name__ == "__main__":
     import sys
