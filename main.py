@@ -88,6 +88,9 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 			self.number_AES_spinBox[i].setValue(standardKey[i])
 			self.number_AES[i] = self.number_AES_spinBox[i].value()
 
+
+
+
 		self.acquisition_loop_running = False
 		self.number_acquisitions_done = 0
 		self.acquisition_period_ms = 1000
@@ -95,6 +98,14 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 		self.analysis_plain_text = []
 		self.analysis_cipher_text = []
 		
+		## For Injection Fault
+
+		for i in range(3):
+			self.injection_fault_pin[i].setRange(0, 9999)
+			self.injection_fault_pin[i].setSingleStep(1)
+			self.injection_fault_pin[i].setValue(1972)
+
+
 		############################################
 		##             Init functions             ##
 		############################################
@@ -997,7 +1008,6 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 
 
 	def AES_Change_Button_Clicked(self) -> None:
-		new_key = [i.value() for i in self.number_AES_spinBox]
 		
 
 		try:
