@@ -612,7 +612,6 @@ class Ui_MainWindow(object):
         for i in range(3):
             self.injection_fault_encode_button[i].setText(_translate("MainWindow", "Encode"))
             self.injection_fault_text[i].setPlaceholderText(_translate("MainWindow", "Enter your message here"))
-            self.injection_fault_pin[i].setPlaceholderText(_translate("MainWindow", "PIN code"))
 
 if __name__ == "__main__":
     import sys
