@@ -320,15 +320,15 @@ class Ui_MainWindow(object):
 
         # Injection Fault Widget
 
-        # Get screen size
-        screen = QtWidgets.QDesktopWidget().screenGeometry()
-
         # Widget for injection fault
         self.injection_Fault_widget = QtWidgets.QWidget(self.centralwidget)
-        self.injection_Fault_widget.setMinimumSize(QtCore.QSize(1400, 700))
-        self.injection_Fault_widget.setMaximumSize(QtCore.QSize(1700, 850))
+        # self.injection_Fault_widget.setMinimumSize(QtCore.QSize(1400, 700))
+        # self.injection_Fault_widget.setMaximumSize(QtCore.QSize(1700, 850))
         self.injection_Fault_widget.setObjectName("injection_Fault_widget")
         
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        self.injection_Fault_widget.setSizePolicy(sizePolicy)
+
         # QVBox Layout for Injection Fault panel
         self.Injection_Fault_v_layout = QtWidgets.QVBoxLayout()
         self.Injection_Fault_v_layout.setObjectName("Injection_Fault_v_layout")
@@ -391,7 +391,6 @@ class Ui_MainWindow(object):
         self.injection_fault_launch_button = [QtWidgets.QPushButton() for _ in range(3)]
         for i in range(3):
             self.injection_fault_launch_button[i].setMinimumSize(QtCore.QSize(100, 30))
-            self.injection_fault_launch_button[i].setMaximumSize(QtCore.QSize(100, 30))
             self.injection_fault_launch_button[i].setFont(QtGui.QFont("Lucida Grande", 9))
             self.injection_fault_launch_button[i].setStyleSheet("background-color: rgb(230, 0, 0);""color: rgb(255, 255, 255);")
             self.Injection_Fault_right_v_layout[i].addWidget(self.injection_fault_launch_button[i])
@@ -399,8 +398,8 @@ class Ui_MainWindow(object):
         # Qlabel to show decripted message
         self.injection_fault_decripted_message = [QtWidgets.QLabel() for _ in range(3)]
         for i in range(3):
-            self.injection_fault_decripted_message[i].setMinimumSize(QtCore.QSize(100, 100))
-            self.injection_fault_decripted_message[i].setMaximumSize(QtCore.QSize(400, 200))
+            self.injection_fault_decripted_message[i].setMinimumSize(QtCore.QSize(800, 100))
+            # self.injection_fault_decripted_message[i].setMaximumSize(QtCore.QSize(400, 200))
             self.injection_fault_decripted_message[i].setFont(QtGui.QFont("Lucida Grande", 9))
             self.injection_fault_decripted_message[i].setStyleSheet("background-color: rgb(255, 255, 255);")
             self.Injection_Fault_right_v_layout[i].addWidget(self.injection_fault_decripted_message[i])
@@ -628,6 +627,7 @@ class Ui_MainWindow(object):
         #injection fault part
         for i in range(3):
             self.injection_fault_encode_button[i].setText(_translate("MainWindow", "Encode"))
+            self.injection_fault_launch_button[i].setText(_translate("MainWindow", "Launch Injection Fault"))
             self.injection_fault_text[i].setPlaceholderText(_translate("MainWindow", "Enter your message here"))
 
 if __name__ == "__main__":
