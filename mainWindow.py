@@ -325,8 +325,9 @@ class Ui_MainWindow(object):
 
         # Widget for injection fault
         self.injection_Fault_widget = QtWidgets.QWidget(self.centralwidget)
-        self.injection_Fault_widget.setMinimumSize(QtCore.QSize(screen.width() * 0.4, screen.height() * 0.4))
-        self.injection_Fault_widget.setMaximumSize(QtCore.QSize(screen.width() * 0.9, screen.height() * 0.9))
+        self.injection_Fault_widget.setFixedSize(QtCore.QSize(screen.width() * 0.8, screen.height() * 0.8))
+        # self.injection_Fault_widget.setMinimumSize(QtCore.QSize(screen.width() * 0.7, screen.height() * 0.8))
+        # self.injection_Fault_widget.setMaximumSize(QtCore.QSize(screen.width() * 0.9, screen.height() * 0.9))
         self.injection_Fault_widget.setObjectName("injection_Fault_widget")
         
         # QVBox Layout for Injection Fault panel
@@ -336,9 +337,6 @@ class Ui_MainWindow(object):
 
         # 3 horizontal layouts in Injection_Fault_v_layout
         self.Injection_Fault_h_layout = [QtWidgets.QHBoxLayout() for _ in range(3)]
-        for i in range(3):
-            self.Injection_Fault_h_layout[i].setMinimumSize(QtCore.QSize(screen.width() * 0.8, screen.height() * 0.2))
-            self.Injection_Fault_h_layout[i].setMaximumSize(QtCore.QSize(screen.width() * 0.95, screen.height() * 0.3))
         self.Injection_Fault_left_v_layout = [QtWidgets.QVBoxLayout() for _ in range(3)]
         self.Injection_Fault_right_v_layout = [QtWidgets.QVBoxLayout() for _ in range(3)]
         for i in range(3):
