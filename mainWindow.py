@@ -325,9 +325,8 @@ class Ui_MainWindow(object):
 
         # Widget for injection fault
         self.injection_Fault_widget = QtWidgets.QWidget(self.centralwidget)
-        self.injection_Fault_widget.setFixedSize(QtCore.QSize(screen.width() * 0.8, screen.height() * 0.8))
-        # self.injection_Fault_widget.setMinimumSize(QtCore.QSize(screen.width() * 0.7, screen.height() * 0.8))
-        # self.injection_Fault_widget.setMaximumSize(QtCore.QSize(screen.width() * 0.9, screen.height() * 0.9))
+        self.injection_Fault_widget.setMinimumSize(QtCore.QSize(1025, 520))
+        self.injection_Fault_widget.setMaximumSize(QtCore.QSize(1700, 850))
         self.injection_Fault_widget.setObjectName("injection_Fault_widget")
         
         # QVBox Layout for Injection Fault panel
