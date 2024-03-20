@@ -375,6 +375,7 @@ class Ui_MainWindow(object):
             self.injection_fault_pin[i].setMinimumSize(QtCore.QSize(100, 30))
             self.injection_fault_pin[i].setMaximumSize(QtCore.QSize(100, 30))
             self.injection_fault_pin[i].setFont(QtGui.QFont("Lucida Grande", 9))
+            self.injection_fault_pin[i].setStyleSheet("background-color: rgb(255, 255, 255);")
             self.injection_fault_left_bottom_h_layout[i].addWidget(self.injection_fault_pin[i])
         
         # Button to encode message in bottom left layout for each box
@@ -386,7 +387,23 @@ class Ui_MainWindow(object):
             self.injection_fault_encode_button[i].setStyleSheet("background-color: rgb(230, 0, 0);""color: rgb(255, 255, 255);")
             self.injection_fault_left_bottom_h_layout[i].addWidget(self.injection_fault_encode_button[i])
 
+        # Button to launch injection fault in right layout for each box
+        self.injection_fault_launch_button = [QtWidgets.QPushButton() for _ in range(3)]
+        for i in range(3):
+            self.injection_fault_launch_button[i].setMinimumSize(QtCore.QSize(100, 30))
+            self.injection_fault_launch_button[i].setMaximumSize(QtCore.QSize(100, 30))
+            self.injection_fault_launch_button[i].setFont(QtGui.QFont("Lucida Grande", 9))
+            self.injection_fault_launch_button[i].setStyleSheet("background-color: rgb(230, 0, 0);""color: rgb(255, 255, 255);")
+            self.Injection_Fault_right_v_layout[i].addWidget(self.injection_fault_launch_button[i])
 
+        # Qlabel to show decripted message
+        self.injection_fault_decripted_message = [QtWidgets.QLabel() for _ in range(3)]
+        for i in range(3):
+            self.injection_fault_decripted_message[i].setMinimumSize(QtCore.QSize(100, 100))
+            self.injection_fault_decripted_message[i].setMaximumSize(QtCore.QSize(400, 200))
+            self.injection_fault_decripted_message[i].setFont(QtGui.QFont("Lucida Grande", 9))
+            self.injection_fault_decripted_message[i].setStyleSheet("background-color: rgb(255, 255, 255);")
+            self.Injection_Fault_right_v_layout[i].addWidget(self.injection_fault_decripted_message[i])
 
         # # Loading bar labels
         # self.loading_bars_labels = [QtWidgets.QLabel() for _ in range(3)]
