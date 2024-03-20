@@ -336,6 +336,9 @@ class Ui_MainWindow(object):
 
         # 3 horizontal layouts in Injection_Fault_v_layout
         self.Injection_Fault_h_layout = [QtWidgets.QHBoxLayout() for _ in range(3)]
+        for i in range(3):
+            self.Injection_Fault_h_layout[i].setMinimumSize(QtCore.QSize(screen.width() * 0.8, screen.height() * 0.2))
+            self.Injection_Fault_h_layout[i].setMaximumSize(QtCore.QSize(screen.width() * 0.95, screen.height() * 0.3))
         self.Injection_Fault_left_v_layout = [QtWidgets.QVBoxLayout() for _ in range(3)]
         self.Injection_Fault_right_v_layout = [QtWidgets.QVBoxLayout() for _ in range(3)]
         for i in range(3):
