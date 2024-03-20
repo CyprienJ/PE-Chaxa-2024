@@ -25,7 +25,7 @@ from functools import partial
 
 from mainWindow import RED_COLOR, BLUE_COLOR, VIOLET_COLOR, LIGHT_BLUE_COLOR
 
-from utils import analysis, load_traces
+from utils import analysis, load_traces, findByte
 
 SUCCESS = 0
 FAILURE = -1
@@ -135,6 +135,8 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 			self.default_trace_check_box[index].stateChanged.connect(self.check_default_trace)
 		for i in range(3):
 			self.start_analysis_buttons[i].clicked.connect(partial(self.OnStartAnalysisButton,i))
+			for j in range(16):
+				self.search_buttons[i][j].clicked.connect(partial(self.OnSearchByteButton, i, j))
 		
 		self.Change_AES_Key_Button.clicked.connect(self.AES_Change_Button_Clicked)
 
@@ -963,15 +965,23 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 	
 	def OnStartAnalysisButton(self, index) -> None:
 		logger.debug(f"Button {index} clicked")
-		self.loading_bars_labels[index].show()
-		self.loading_bars[index].show()
-		self.key_groupbox[index].show()
-		traces, plaintexts = load_traces(index)
-		key = analysis(traces, plaintexts)
+		#self.loading_bars_labels[index].show()
+		#self.loading_bars[index].show()
+		#self.key_groupbox[index].show()
+		#[self.search_buttons[index][j].show() for j in range(16)]
+		#traces, plaintexts = load_traces(index)
+		#key = analysis(traces, plaintexts)
+		key = ['0x0', '0x11', '0x22', '0x33', '0x44', '0x55', '0x66', '0x77', '0x88', '0x99', '0xaa', '0xbb', '0xcc', '0xdd', '0xee', '0xff']
 		for i in range(16):
 			self.key_labels[index][i].setText(key[i])
 		logger.debug(key)
 
+	def OnSearchByteButton(self, index, target_byte):
+		traces, plaintexts = load_traces(index)
+		key_byte = findByte(traces, plaintexts, target_byte, False)
+		self.key_labels[index][target_byte].setText(key_byte)
+		#key = ['0x0', '0x11', '0x22', '0x33', '0x44', '0x55', '0x66', '0x77', '0x88', '0x99', '0xaa', '0xbb', '0xcc', '0xdd', '0xee', '0xff']
+		#self.key_labels[index][target_byte].setText(key[target_byte])
 
 	def base10tohex(self, base10: int) -> str:
 		"""Convert a base 10 number to a 2 characters hexa string"""

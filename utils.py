@@ -126,39 +126,55 @@ def load_traces(index: int):
     
     return traces, plaintexts
 
-#take traces and the list of plaintexts and do the side-channel analysis
-def analysis(traces : np.array, plaintexts: list):
+
+#Find a byte of the AES key
+def findByte(traces : np.array, plaintexts : np.array, target : int, isFiltered : bool):
     nb_traces = traces.shape[0]
     nb_samples = traces.shape[1]
     
+    if(~isFiltered):
+        # Sample frequency
+        FS = 250e6
+        #Filter
+        n_coeffs = 109 # TODO
+        freqs = [0, 30e6, 36e6, 125e6]  #frequencies bandwidths
+        gains = [10, 10, 0, 0]  #gains of the filter
+        fir_coeffs = signal.firls(n_coeffs, freqs, gains, fs=FS)
+        traces_filtered = signal.filtfilt(fir_coeffs, 1, traces, axis=1)
+    
+    process_range = np.array([[0, 1000], [0, 2000], [0, 1000], [500, 1500], [1000, 2000], [1000, 2000], [1500, 2500], [2000, 3000], [2500, 3500], [2500, 3500], [2800, 3800], [3000, 4000], [3500, 4500], [3500, 4500], [4000, nb_samples], [4000, nb_samples]])
+    hypothesis_matrix = np.zeros((256, nb_traces))
+
+    #Matrice hypothèse
+    for k in range(256):
+        for j in range(nb_traces):
+            target_byte = int(plaintexts[j][target*2:(target+1)*2], 16)
+            intermediate_variable = target_variable(k, target_byte)
+            hamming = hamming_weight(intermediate_variable)
+            hypothesis_matrix[k,j]= hamming
+    #Matrice de corrélation
+    corr_matrix = np.zeros((256, process_range[target, 1]-process_range[target, 0]))
+    for i in range(256):
+        for j in range(process_range[target, 0], process_range[target, 1]):
+            corr_matrix[i, j-process_range[target, 0]] = np.corrcoef(traces_filtered.T[j], hypothesis_matrix[i])[0, 1]
+            
+    return hex(np.argmax(np.max(np.abs(corr_matrix.T), axis=0)))
+
+#take traces and the list of plaintexts and do the side-channel analysis
+def analysis(traces : np.array, plaintexts: list):
+    
     # Sample frequency
     FS = 250e6
+    #Filter
     n_coeffs = 109 # TODO
     freqs = [0, 30e6, 36e6, 125e6]  #frequencies bandwidths
     gains = [10, 10, 0, 0]  #gains of the filter
     fir_coeffs = signal.firls(n_coeffs, freqs, gains, fs=FS)
     traces_filtered = signal.filtfilt(fir_coeffs, 1, traces, axis=1)
-    hypothesis_matrice = np.zeros((256, nb_traces))
     key = []
-    process_range = np.array([[0, 1000], [0, 2000], [0, 1000], [500, 1500], [1000, 2000], [1000, 2000], [1500, 2500], [2000, 3000], [2500, 3500], [2500, 3500], [2800, 3800], [3000, 4000], [3500, 4500], [3500, 4500], [4000, nb_samples], [4000, nb_samples]])
 
-    #For each byte of the key
-    for target in range(2,33, 2):
-
-        #Hypothesis matrix
-        for k in range(256):
-            for j in range(nb_traces):
-                target_byte = int(plaintexts[j][target-2:target], 16)
-                intermediate_variable = target_variable(k, target_byte)
-                hamming = hamming_weight(intermediate_variable)
-                hypothesis_matrice[k,j]= hamming
-        #Correlation matrix
-        corr_matrice = np.zeros((256, process_range[(target-1)//2, 1]-process_range[(target-1)//2, 0]))
-        for i in range(256):
-            for j in range(process_range[(target-1)//2, 0], process_range[(target-1)//2, 1]):
-                corr_matrice[i, j-process_range[(target-1)//2, 0]] = np.corrcoef(traces_filtered.T[j], hypothesis_matrice[i])[0, 1]
-
-        key.append(hex(np.argmax(np.max(np.abs(corr_matrice.T), axis=0)))) #On affiche la clé en hexadécimal
+    for target in range(16):
+        key.append(findByte(traces_filtered, plaintexts, target))
         
     return key
     
