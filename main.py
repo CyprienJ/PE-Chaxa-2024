@@ -701,6 +701,7 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 			logger.error("Failed to set mux")
 
 	def listen_uart(self, index):
+
 		"""Listen to the UART and print the received data"""
 		ser = self.uart_serial_array[index]
 			
@@ -711,6 +712,7 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 				except:
 					#wait 0.001s before trying again
 					time.sleep(0.001)
+			
 				
 	
 	
@@ -749,6 +751,8 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 				logger.warning(f"Failed to set {port_names[i]}")
 		
 		#begin listenging thread
+				
+
 		self.uart_thread = [None for _ in range(3)]
 		for i in range(3):
 			self.uart_thread[i] = threading.Thread(target=self.listen_uart, args=(i,))

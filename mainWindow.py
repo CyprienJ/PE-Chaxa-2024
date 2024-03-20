@@ -367,8 +367,13 @@ class Ui_MainWindow(object):
 
         # Widget for injection fault
         self.injection_Fault_widget = QtWidgets.QWidget(self.centralwidget)
-        self.injection_Fault_widget.setMinimumSize(QtCore.QSize(screen.width() * 0.5, screen.height() * 0.5))
-
+        self.injection_Fault_widget.setMinimumSize(QtCore.QSize(screen.width() * 0.9, screen.height() * 0.9))
+        # Center the widget
+        qr = self.injection_Fault_widget.frameGeometry()
+        cp = QtWidgets.QDesktopWidget().availableGeometry().center()
+        qr.moveCenter(cp)
+        self.injection_Fault_widget.move(qr.topLeft())
+        
         # QVBox Layout for Injection Fault panel
         self.Injection_Fault_v_layout = QtWidgets.QVBoxLayout()
         self.Injection_Fault_v_layout.setObjectName("Injection_Fault_v_layout")
