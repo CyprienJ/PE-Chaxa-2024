@@ -314,18 +314,18 @@ class Ui_MainWindow(object):
             self.start_analysis_buttons[i].setStyleSheet("background-color: rgb(230, 0, 0);""color: rgb(255, 255, 255);")
             self.tab5_left_v_layout[i].addWidget(self.start_analysis_buttons[i], 50,  alignment=QtCore.Qt.AlignmentFlag.AlignTop)
 
-        # Loading bar labels
-        self.loading_bars_labels = [QtWidgets.QLabel() for _ in range(3)]
-        for i in range(3):
-           self.loading_bars_labels[i].setFont(QtGui.QFont("Lucida Grande", 9))
-           self.loading_bars_labels[i].setVisible(False)
-           self.tab5_right_v_layout[i].addWidget(self.loading_bars_labels[i], 20, alignment=QtCore.Qt.AlignmentFlag.AlignBottom)
+        # # Loading bar labels
+        # self.loading_bars_labels = [QtWidgets.QLabel() for _ in range(3)]
+        # for i in range(3):
+        #    self.loading_bars_labels[i].setFont(QtGui.QFont("Lucida Grande", 9))
+        #    self.loading_bars_labels[i].setVisible(False)
+        #    self.tab5_right_v_layout[i].addWidget(self.loading_bars_labels[i], 20, alignment=QtCore.Qt.AlignmentFlag.AlignBottom)
         
-        # Loading bar
-        self.loading_bars = [QtWidgets.QProgressBar() for _ in range(3)]
-        for i in range(3):
-            self.loading_bars[i].setVisible(False)
-            self.tab5_right_v_layout[i].addWidget(self.loading_bars[i], 30, alignment=QtCore.Qt.AlignmentFlag.AlignTop)
+        # # Loading bar
+        # self.loading_bars = [QtWidgets.QProgressBar() for _ in range(3)]
+        # for i in range(3):
+        #     self.loading_bars[i].setVisible(False)
+        #     self.tab5_right_v_layout[i].addWidget(self.loading_bars[i], 30, alignment=QtCore.Qt.AlignmentFlag.AlignTop)
 
         # Key-encryption GroupBox
         self.key_groupbox = [QtWidgets.QGroupBox() for _ in range(3)]
@@ -333,19 +333,34 @@ class Ui_MainWindow(object):
         self.key_h_layout = [QtWidgets.QHBoxLayout(self.key_groupbox[index]) for index in range(3)]
         for i in range(3):
             self.key_groupbox[i].setStyleSheet("QGroupBox { font-weight: bold; } ");
-            self.key_groupbox[i].setVisible(False)
-            self.tab5_right_v_layout[i].addWidget(self.key_groupbox[i], 50)
+            #self.key_groupbox[i].setVisible(False)
+            self.tab5_right_v_layout[i].addWidget(self.key_groupbox[i], 50, alignment=QtCore.Qt.AlignmentFlag.AlignTop)
 
         # 16 Key text labels
         self.key_labels = [[0 for j in range(16)] for i in range(3)]
         for i in range(3):
             for j in range(16):
                 self.key_labels[i][j] = QtWidgets.QLabel(self.key_groupbox[i])
-                self.key_labels[i][j].setMinimumSize(QtCore.QSize(50, 23))
-                self.key_labels[i][j].setMaximumSize(QtCore.QSize(50, 23))
+                self.key_labels[i][j].setMinimumSize(QtCore.QSize(65, 23))
+                self.key_labels[i][j].setMaximumSize(QtCore.QSize(65, 23))
                 self.key_labels[i][j].setStyleSheet("background-color: rgb(243, 243, 243);")
                 self.key_h_layout[i].addWidget(self.key_labels[i][j])
-
+                
+        #Search buttons vertical layout
+        self.search_h_layout = [QtWidgets.QHBoxLayout() for _ in range(3)]
+        for i in range(3):
+            self.tab5_right_v_layout[i].addLayout(self.search_h_layout[i])
+        # Search buttons
+        self.search_buttons = [[0 for j in range(16)] for _ in range(3)]
+        for i in range(3):
+            for j in range(16):
+                self.search_buttons[i][j] = QtWidgets.QPushButton()
+                self.search_buttons[i][j].setMinimumSize(QtCore.QSize(65, 60))
+                self.search_buttons[i][j].setMaximumSize(QtCore.QSize(65, 60))
+                self.search_buttons[i][j].setFont(QtGui.QFont("Lucida Grande", 10))
+                self.search_buttons[i][j].setStyleSheet("background-color: rgb(230, 0, 0);""color: rgb(255, 255, 255);")
+                #self.search_buttons[i][j].setVisible(False)
+                self.search_h_layout[i].addWidget(self.search_buttons[i][j], 50, alignment=QtCore.Qt.AlignmentFlag.AlignTop)
 
         self.Injection_Fault_v_layout = QtWidgets.QVBoxLayout()
         self.Injection_Fault_v_layout.setObjectName("Injection_Fault_v_layout")
@@ -527,8 +542,11 @@ class Ui_MainWindow(object):
         self.start_analysis_buttons[1].setText(_translate("MainWindow", "Start Analysis on\nAttenuated traces"))
         self.start_analysis_buttons[2].setText(_translate("MainWindow", "Start Analysis on\nChaXa traces"))
         for i in range(3):
-            self.loading_bars_labels[i].setText(_translate("MainWindow", "Loading bar"))
+            #self.loading_bars_labels[i].setText(_translate("MainWindow", "Loading bar"))
             self.key_groupbox[i].setTitle(_translate("MainWindow", "The encryption key is: "))
+        for i in range (3):
+            for j in range(16):
+                self.search_buttons[i][j].setText(_translate("MainWindow", "Search\nByte"))
         self.Home_label_SubTitle.setText(_translate("MainWindow", "Chaxa Demonstrator App aims at proving ChaXa\ndevice efficiency"))
         self.Home_label_title.setText(_translate("MainWindow", "ChaXa Demonstrator App"))
         self.Side_Channel_LaunchButton.setText(_translate("MainWindow", "Launch Side Channel Interface"))
