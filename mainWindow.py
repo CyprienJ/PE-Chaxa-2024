@@ -324,7 +324,7 @@ class Ui_MainWindow(object):
 
         # Widget for injection fault
         self.injection_Fault_widget = QtWidgets.QWidget(self.centralwidget)
-        self.injection_Fault_widget.setMinimumSize(QtCore.QSize(size.width() * 0.5, 700))
+        self.injection_Fault_widget.setMinimumSize(QtCore.QSize(size.width(), size.height()))
         self.injection_Fault_widget.setObjectName("injection_Fault_widget")
 
 
