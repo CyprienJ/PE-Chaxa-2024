@@ -325,8 +325,10 @@ class Ui_MainWindow(object):
 
         # Widget for injection fault
         self.injection_Fault_widget = QtWidgets.QWidget(self.centralwidget)
+        self.injection_Fault_widget.setMinimumSize(QtCore.QSize(1400, 700))
+        self.injection_Fault_widget.setMaximumSize(QtCore.QSize(1700, 850))
         self.injection_Fault_widget.setObjectName("injection_Fault_widget")
-        self.setCentralWidget(self.injection_Fault_widget)
+        
         # QVBox Layout for Injection Fault panel
         self.Injection_Fault_v_layout = QtWidgets.QVBoxLayout()
         self.Injection_Fault_v_layout.setObjectName("Injection_Fault_v_layout")
@@ -359,6 +361,7 @@ class Ui_MainWindow(object):
             self.injection_fault_text[i].setMinimumSize(QtCore.QSize(100, 100))
             self.injection_fault_text[i].setMaximumSize(QtCore.QSize(400, 200))
             self.injection_fault_text[i].setFont(QtGui.QFont("Lucida Grande", 9))
+            self.injection_fault_text[i].setStyleSheet("background-color: rgb(255, 255, 255);")
             self.Injection_Fault_left_v_layout[i].addWidget(self.injection_fault_text[i])
 
         # horizontal layout in left layout for each box
@@ -366,8 +369,8 @@ class Ui_MainWindow(object):
         for i in range(3):
             self.Injection_Fault_left_v_layout[i].addLayout(self.injection_fault_left_bottom_h_layout[i])
         
-        #text box for PIN code in bottom left layout for each box
-        self.injection_fault_pin = [QtWidgets.QLineEdit() for _ in range(3)]
+        # Spin box for PIN code in bottom left layout for each box
+        self.injection_fault_pin = [QtWidgets.QSpinBox() for _ in range(3)]
         for i in range(3):
             self.injection_fault_pin[i].setMinimumSize(QtCore.QSize(100, 30))
             self.injection_fault_pin[i].setMaximumSize(QtCore.QSize(100, 30))
