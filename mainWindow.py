@@ -324,7 +324,7 @@ class Ui_MainWindow(object):
 
         # Widget for injection fault
         self.injection_Fault_widget = QtWidgets.QWidget(self.centralwidget)
-        self.injection_Fault_widget.setMinimumSize(QtCore.QSize(size.width(), size.height()))
+        self.injection_Fault_widget.setMinimumSize(QtCore.QSize(size.width(), size.height()*0.8))
         self.injection_Fault_widget.setObjectName("injection_Fault_widget")
 
 
@@ -358,7 +358,7 @@ class Ui_MainWindow(object):
         self.injection_fault_text = [QtWidgets.QTextEdit() for _ in range(3)]
         for i in range(3):
             self.injection_fault_text[i].setMinimumSize(QtCore.QSize(100, 100))
-            self.injection_fault_text[i].setMaximumSize(QtCore.QSize(400, 200))
+            self.injection_fault_text[i].setMaximumSize(QtCore.QSize(300, 200))
             self.injection_fault_text[i].setFont(QtGui.QFont("Lucida Grande", 9))
             self.injection_fault_text[i].setStyleSheet("background-color: rgb(255, 255, 255);")
             self.Injection_Fault_left_v_layout[i].addWidget(self.injection_fault_text[i])
