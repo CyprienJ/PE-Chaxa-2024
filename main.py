@@ -92,7 +92,7 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
    
 		#Number of traces spinBox definition
 		for i in range(3):
-			self.number_traces_spinBox[i].setRange(1, 1000)
+			self.number_traces_spinBox[i].setRange(2, 1000)
 			self.number_traces_spinBox[i].setSingleStep(1)
 			self.number_traces_spinBox[i].setValue(1)
 
