@@ -126,6 +126,17 @@ def load_traces(index: int):
     
     return traces, plaintexts
 
+def filter(traces):
+    # Sample frequency
+    FS = 250e6
+    #Filter
+    n_coeffs = 109
+    freqs = [0, 30e6, 36e6, 125e6]  #frequencies bandwidths
+    gains = [10, 10, 0, 0]  #gains of the filter
+    fir_coeffs = signal.firls(n_coeffs, freqs, gains, fs=FS)
+    traces_filtered = signal.filtfilt(fir_coeffs, 1, traces, axis=1)
+
+    return traces_filtered
 
 #Find a byte of the AES key
 def findByte(traces : np.array, plaintexts : np.array, target : int, isFiltered : bool):
@@ -133,15 +144,8 @@ def findByte(traces : np.array, plaintexts : np.array, target : int, isFiltered 
     nb_samples = traces.shape[1]
     
     if(~isFiltered):
-        # Sample frequency
-        FS = 250e6
-        #Filter
-        n_coeffs = 109 # TODO
-        freqs = [0, 30e6, 36e6, 125e6]  #frequencies bandwidths
-        gains = [10, 10, 0, 0]  #gains of the filter
-        fir_coeffs = signal.firls(n_coeffs, freqs, gains, fs=FS)
-        traces_filtered = signal.filtfilt(fir_coeffs, 1, traces, axis=1)
-    
+        traces_filtered = filter(traces)
+        
     process_range = np.array([[0, 1000], [0, 2000], [0, 1000], [500, 1500], [1000, 2000], [1000, 2000], [1500, 2500], [2000, 3000], [2500, 3500], [2500, 3500], [2800, 3800], [3000, 4000], [3500, 4500], [3500, 4500], [4000, nb_samples], [4000, nb_samples]])
     hypothesis_matrix = np.zeros((256, nb_traces))
 
@@ -163,18 +167,11 @@ def findByte(traces : np.array, plaintexts : np.array, target : int, isFiltered 
 #take traces and the list of plaintexts and do the side-channel analysis
 def analysis(traces : np.array, plaintexts: list):
     
-    # Sample frequency
-    FS = 250e6
-    #Filter
-    n_coeffs = 109 # TODO
-    freqs = [0, 30e6, 36e6, 125e6]  #frequencies bandwidths
-    gains = [10, 10, 0, 0]  #gains of the filter
-    fir_coeffs = signal.firls(n_coeffs, freqs, gains, fs=FS)
-    traces_filtered = signal.filtfilt(fir_coeffs, 1, traces, axis=1)
+    traces_filtered = filter(traces)
     key = []
 
     for target in range(16):
-        key.append(findByte(traces_filtered, plaintexts, target))
+        key.append(findByte(traces_filtered, plaintexts, target, True))
         
     return key
     

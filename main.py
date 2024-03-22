@@ -26,6 +26,8 @@ from functools import partial
 from mainWindow import RED_COLOR, BLUE_COLOR, VIOLET_COLOR, LIGHT_BLUE_COLOR
 
 from utils import analysis, load_traces, findByte
+from scipy import signal
+
 
 SUCCESS = 0
 FAILURE = -1
@@ -87,6 +89,12 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 			self.number_AES_spinBox[i].setSingleStep(1)
 			self.number_AES_spinBox[i].setValue(standardKey[i])
 			self.number_AES[i] = self.number_AES_spinBox[i].value()
+   
+		#Number of traces spinBox definition
+		for i in range(3):
+			self.number_traces_spinBox[i].setRange(1, 1000)
+			self.number_traces_spinBox[i].setSingleStep(1)
+			self.number_traces_spinBox[i].setValue(1)
 
 		self.acquisition_loop_running = False
 		self.number_acquisitions_done = 0
@@ -756,7 +764,7 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 		
 	def init_GPIO(self) -> None:
 		""" Init GPIOs 2 and 3 to pilot the mux"""
-		GPIO.setmode(GPIO.BCM)
+		#GPIO.setmode(GPIO.BCM)
 		try:
 			for i in range(2,4):
 				GPIO.setup(i, GPIO.OUT)
@@ -961,26 +969,32 @@ class MainWindow(QtWidgets.QMainWindow, mainWindow.Ui_MainWindow):
 			max_value = max(abs(min(data)), abs(max(data)))
 			enlargement_factor = 4
 			self.y_range_signal = (-max_value*enlargement_factor, max_value*enlargement_factor)
-	
+   
 	def OnStartAnalysisButton(self, index) -> None:
 		logger.debug(f"Button {index} clicked")
-		#self.loading_bars_labels[index].show()
-		#self.loading_bars[index].show()
-		#self.key_groupbox[index].show()
-		#[self.search_buttons[index][j].show() for j in range(16)]
-		#traces, plaintexts = load_traces(index)
-		#key = analysis(traces, plaintexts)
-		key = ['0x0', '0x11', '0x22', '0x33', '0x44', '0x55', '0x66', '0x77', '0x88', '0x99', '0xaa', '0xbb', '0xcc', '0xdd', '0xee', '0xff']
+		nb_traces = self.number_traces_spinBox[index].value()
+		traces, plaintexts = load_traces(index)
+		if(nb_traces > traces.shape[0]):
+			nb_traces = traces.shape[0]
+			logger.debug("Too many traces asked !")
+   
+		key = analysis(traces[:nb_traces], plaintexts[:nb_traces])
+   
 		for i in range(16):
 			self.key_labels[index][i].setText(key[i])
 		logger.debug(key)
 
 	def OnSearchByteButton(self, index, target_byte):
+		logger.debug(f"Button {index}, {target_byte} clicked")
+		nb_traces = self.number_traces_spinBox[index].value()
 		traces, plaintexts = load_traces(index)
-		key_byte = findByte(traces, plaintexts, target_byte, False)
+		if(nb_traces > traces.shape[0]):
+			nb_traces = traces.shape[0]
+			logger.debug("Too many traces asked !")
+   
+		key_byte = findByte(traces[:nb_traces], plaintexts[:nb_traces], target_byte, False)
 		self.key_labels[index][target_byte].setText(key_byte)
-		#key = ['0x0', '0x11', '0x22', '0x33', '0x44', '0x55', '0x66', '0x77', '0x88', '0x99', '0xaa', '0xbb', '0xcc', '0xdd', '0xee', '0xff']
-		#self.key_labels[index][target_byte].setText(key[target_byte])
+		logger.debug("Byte found !")
 
 	def base10tohex(self, base10: int) -> str:
 		"""Convert a base 10 number to a 2 characters hexa string"""
