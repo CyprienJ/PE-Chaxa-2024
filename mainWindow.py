@@ -306,7 +306,19 @@ class Ui_MainWindow(object):
            self.analysis_label[i].setAlignment(QtCore.Qt.AlignCenter)
            self.tab5_left_v_layout[i].addWidget(self.analysis_label[i], 50)
         
-        # Start anlysis buttons
+        # Change the number of traces for the analysis
+        self.number_traces_spinBox = [QtWidgets.QSpinBox() for _ in range(3)]
+        for i in range(3):
+            self.number_traces_spinBox[i].setMinimumSize(QtCore.QSize(40, 30))
+            self.number_traces_spinBox[i].setMaximumSize(QtCore.QSize(100, 100))
+            self.number_traces_spinBox[i].setFont(QtGui.QFont("Lucida Grande", 11))
+            self.number_traces_spinBox[i].setStyleSheet("background-color: rgb(238, 238, 236);")
+            self.number_traces_spinBox[i].setObjectName("number of traces" + str(i) + "_spinBox")
+            self.number_traces_spinBox[i].setDisplayIntegerBase(10)
+            self.tab5_left_v_layout[i].addWidget(self.number_traces_spinBox[i])
+
+        
+        # Start analysis buttons
         self.start_analysis_buttons = [QtWidgets.QPushButton() for _ in range(3)]
         for i in range(3):
             self.start_analysis_buttons[i].setMinimumSize(QtCore.QSize(220, 50))
@@ -314,7 +326,6 @@ class Ui_MainWindow(object):
             self.start_analysis_buttons[i].setFont(QtGui.QFont("Lucida Grande", 10))
             self.start_analysis_buttons[i].setStyleSheet("background-color: rgb(230, 0, 0);""color: rgb(255, 255, 255);")
             self.tab5_left_v_layout[i].addWidget(self.start_analysis_buttons[i], 50,  alignment=QtCore.Qt.AlignmentFlag.AlignTop)
-
 
 
 
@@ -402,20 +413,6 @@ class Ui_MainWindow(object):
             self.injection_fault_decripted_message[i].setFont(QtGui.QFont("Lucida Grande", 9))
             self.injection_fault_decripted_message[i].setStyleSheet("background-color: rgb(255, 255, 255);")
             self.Injection_Fault_right_v_layout[i].addWidget(self.injection_fault_decripted_message[i])
-
-        # # Loading bar labels
-        # self.loading_bars_labels = [QtWidgets.QLabel() for _ in range(3)]
-        # for i in range(3):
-        #    self.loading_bars_labels[i].setFont(QtGui.QFont("Lucida Grande", 9))
-        #    self.loading_bars_labels[i].setVisible(False)
-        #    self.tab5_right_v_layout[i].addWidget(self.loading_bars_labels[i], 20, alignment=QtCore.Qt.AlignmentFlag.AlignBottom)
-        
-        # # Loading bar
-        # self.loading_bars = [QtWidgets.QProgressBar() for _ in range(3)]
-        # for i in range(3):
-        #     self.loading_bars[i].setVisible(False)
-        #     self.tab5_right_v_layout[i].addWidget(self.loading_bars[i], 30, alignment=QtCore.Qt.AlignmentFlag.AlignTop)
-
         # Key-encryption GroupBox
         self.key_groupbox = [QtWidgets.QGroupBox() for _ in range(3)]
         # Key GroupBox horizontal Layout
@@ -448,7 +445,6 @@ class Ui_MainWindow(object):
                 self.search_buttons[i][j].setMaximumSize(QtCore.QSize(65, 60))
                 self.search_buttons[i][j].setFont(QtGui.QFont("Lucida Grande", 10))
                 self.search_buttons[i][j].setStyleSheet("background-color: rgb(230, 0, 0);""color: rgb(255, 255, 255);")
-                #self.search_buttons[i][j].setVisible(False)
                 self.search_h_layout[i].addWidget(self.search_buttons[i][j], 50, alignment=QtCore.Qt.AlignmentFlag.AlignTop)
 
         # Home Page Layout/Widget
@@ -602,9 +598,9 @@ class Ui_MainWindow(object):
         self.unprotected_label.setText(_translate("MainWindow", "Unprotected signal"))
         self.passive_label.setText(_translate("MainWindow", "Passive shielding signal"))
         self.chaxa_label.setText(_translate("MainWindow", "ChaXa signal"))
-        self.analysis_label[0].setText(_translate("MainWindow", "You have 50 traces from\nUnprotected microcontroller"))
-        self.analysis_label[1].setText(_translate("MainWindow", "You have 50 traces from\nPassive shielded microcontroller"))
-        self.analysis_label[2].setText(_translate("MainWindow", "You have 50 traces from\nChaXa microcontroller"))
+        self.analysis_label[0].setText(_translate("MainWindow", "Choose the number of traces\nand attack the\nunprotected microcontroller"))
+        self.analysis_label[1].setText(_translate("MainWindow", "Choose the number of traces\nand attack the\npassive protected microcontroller"))
+        self.analysis_label[2].setText(_translate("MainWindow", "Choose the number of traces\nand attack the\nChaXa protected microcontroller"))
         self.start_analysis_buttons[0].setText(_translate("MainWindow", "Start Analysis on\nUnprotected traces"))
         self.start_analysis_buttons[1].setText(_translate("MainWindow", "Start Analysis on\nAttenuated traces"))
         self.start_analysis_buttons[2].setText(_translate("MainWindow", "Start Analysis on\nChaXa traces"))
