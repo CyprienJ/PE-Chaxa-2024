@@ -276,6 +276,7 @@ class Ui_MainWindow(object):
         self.tab5_main_v_layout.setObjectName("tab5_main_v_layout")
 
 
+
         # 3 horizontals layouts in tab5_main_v_layout
         self.tab5_h_layout = [QtWidgets.QHBoxLayout() for _ in range(3)]
         self.tab5_left_v_layout = [QtWidgets.QVBoxLayout() for _ in range(3)]
@@ -326,6 +327,92 @@ class Ui_MainWindow(object):
             self.start_analysis_buttons[i].setStyleSheet("background-color: rgb(230, 0, 0);""color: rgb(255, 255, 255);")
             self.tab5_left_v_layout[i].addWidget(self.start_analysis_buttons[i], 50,  alignment=QtCore.Qt.AlignmentFlag.AlignTop)
 
+
+
+        # Injection Fault Widget
+
+        size = self.size()
+
+        # Widget for injection fault
+        self.injection_Fault_widget = QtWidgets.QWidget(self.centralwidget)
+        self.injection_Fault_widget.setMinimumSize(QtCore.QSize(size.width(), size.height()*0.92))
+        self.injection_Fault_widget.setObjectName("injection_Fault_widget")
+
+
+        # QVBox Layout for Injection Fault panel
+        self.Injection_Fault_v_layout = QtWidgets.QVBoxLayout()
+        self.Injection_Fault_v_layout.setObjectName("Injection_Fault_v_layout")
+        self.injection_Fault_widget.setLayout(self.Injection_Fault_v_layout)
+
+        # 3 horizontal layouts in Injection_Fault_v_layout
+        self.Injection_Fault_h_layout = [QtWidgets.QHBoxLayout() for _ in range(3)]
+        self.Injection_Fault_left_v_layout = [QtWidgets.QVBoxLayout() for _ in range(3)]
+        self.Injection_Fault_right_v_layout = [QtWidgets.QVBoxLayout() for _ in range(3)]
+        for i in range(3):
+            self.Injection_Fault_v_layout.addLayout(self.Injection_Fault_h_layout[i])
+            self.Injection_Fault_h_layout[i].addLayout(self.Injection_Fault_left_v_layout[i])
+            self.Injection_Fault_h_layout[i].addLayout(self.Injection_Fault_right_v_layout[i])
+
+        # Vertical lines to separe left and right part
+        self.injection_fault_v_lines = [QtWidgets.QFrame() for _ in range(3)]
+        for i in range(3):
+            self.injection_fault_v_lines[i].setFrameShape(QtWidgets.QFrame.VLine)
+            self.Injection_Fault_h_layout[i].insertWidget(1, self.injection_fault_v_lines[i], alignment=QtCore.Qt.AlignLeft)
+        
+        #Two lines to separe the three main horizontals layouts
+        self.injection_fault_h_lines = [QtWidgets.QFrame() for _ in range(2)]
+        for i in range(2):
+            self.injection_fault_h_lines[i].setFrameShape(QtWidgets.QFrame.HLine)
+            self.Injection_Fault_v_layout.insertWidget(2*i+1, self.injection_fault_h_lines[i])
+
+        # text box for message in left layout for each box
+        self.injection_fault_text = [QtWidgets.QTextEdit() for _ in range(3)]
+        for i in range(3):
+            self.injection_fault_text[i].setMinimumSize(QtCore.QSize(100, 100))
+            self.injection_fault_text[i].setMaximumSize(QtCore.QSize(250, 200))
+            self.injection_fault_text[i].setFont(QtGui.QFont("Lucida Grande", 9))
+            self.injection_fault_text[i].setStyleSheet("background-color: rgb(255, 255, 255);")
+            self.Injection_Fault_left_v_layout[i].addWidget(self.injection_fault_text[i])
+
+        # horizontal layout in left layout for each box
+        self.injection_fault_left_bottom_h_layout = [QtWidgets.QHBoxLayout() for _ in range(3)]
+        for i in range(3):
+            self.Injection_Fault_left_v_layout[i].addLayout(self.injection_fault_left_bottom_h_layout[i])
+        
+        # Spin box for PIN code in bottom left layout for each box
+        self.injection_fault_pin = [QtWidgets.QSpinBox() for _ in range(3)]
+        for i in range(3):
+            self.injection_fault_pin[i].setMinimumSize(QtCore.QSize(100, 30))
+            self.injection_fault_pin[i].setMaximumSize(QtCore.QSize(100, 30))
+            self.injection_fault_pin[i].setFont(QtGui.QFont("Lucida Grande", 9))
+            self.injection_fault_pin[i].setStyleSheet("background-color: rgb(255, 255, 255);")
+            self.injection_fault_left_bottom_h_layout[i].addWidget(self.injection_fault_pin[i])
+        
+        # Button to encode message in bottom left layout for each box
+        self.injection_fault_encode_button = [QtWidgets.QPushButton() for _ in range(3)]
+        for i in range(3):
+            self.injection_fault_encode_button[i].setMinimumSize(QtCore.QSize(100, 30))
+            self.injection_fault_encode_button[i].setMaximumSize(QtCore.QSize(100, 30))
+            self.injection_fault_encode_button[i].setFont(QtGui.QFont("Lucida Grande", 9))
+            self.injection_fault_encode_button[i].setStyleSheet("background-color: rgb(230, 0, 0);""color: rgb(255, 255, 255);")
+            self.injection_fault_left_bottom_h_layout[i].addWidget(self.injection_fault_encode_button[i])
+
+        # Button to launch injection fault in right layout for each box
+        self.injection_fault_launch_button = [QtWidgets.QPushButton() for _ in range(3)]
+        for i in range(3):
+            self.injection_fault_launch_button[i].setMinimumSize(QtCore.QSize(100, 30))
+            self.injection_fault_launch_button[i].setFont(QtGui.QFont("Lucida Grande", 9))
+            self.injection_fault_launch_button[i].setStyleSheet("background-color: rgb(230, 0, 0);""color: rgb(255, 255, 255);")
+            self.Injection_Fault_right_v_layout[i].addWidget(self.injection_fault_launch_button[i])
+
+        # Qlabel to show decripted message
+        self.injection_fault_decripted_message = [QtWidgets.QLabel() for _ in range(3)]
+        for i in range(3):
+            self.injection_fault_decripted_message[i].setMinimumSize(QtCore.QSize(size.width() - 320, 100))
+            # self.injection_fault_decripted_message[i].setMaximumSize(QtCore.QSize(400, 200))
+            self.injection_fault_decripted_message[i].setFont(QtGui.QFont("Lucida Grande", 9))
+            self.injection_fault_decripted_message[i].setStyleSheet("background-color: rgb(255, 255, 255);")
+            self.Injection_Fault_right_v_layout[i].addWidget(self.injection_fault_decripted_message[i])
         # Key-encryption GroupBox
         self.key_groupbox = [QtWidgets.QGroupBox() for _ in range(3)]
         # Key GroupBox horizontal Layout
@@ -359,32 +446,6 @@ class Ui_MainWindow(object):
                 self.search_buttons[i][j].setFont(QtGui.QFont("Lucida Grande", 10))
                 self.search_buttons[i][j].setStyleSheet("background-color: rgb(230, 0, 0);""color: rgb(255, 255, 255);")
                 self.search_h_layout[i].addWidget(self.search_buttons[i][j], 50, alignment=QtCore.Qt.AlignmentFlag.AlignTop)
-
-        self.Injection_Fault_v_layout = QtWidgets.QVBoxLayout()
-        self.Injection_Fault_v_layout.setObjectName("Injection_Fault_v_layout")
-
-        #3 horizontal layouts in Injection_Fault_v_layout
-        self.Injection_Fault_h_layout = [QtWidgets.QHBoxLayout() for _ in range(3)]
-        self.Injection_Fault_left_v_layout = [QtWidgets.QVBoxLayout() for _ in range(3)]
-        self.Injection_Fault_right_v_layout = [QtWidgets.QVBoxLayout() for _ in range(3)]
-        for i in range(3):
-            self.Injection_Fault_v_layout.addLayout(self.Injection_Fault_h_layout[i])
-            self.Injection_Fault_h_layout[i].addLayout(self.Injection_Fault_left_v_layout[i])
-            self.Injection_Fault_h_layout[i].addLayout(self.Injection_Fault_right_v_layout[i])
-
-        # Vertical lines to separe left and right part
-        self.injection_fault_v_lines = [QtWidgets.QFrame() for _ in range(3)]
-        for i in range(3):
-            self.injection_fault_v_lines[i].setFrameShape(QtWidgets.QFrame.VLine)
-            self.Injection_Fault_h_layout[i].insertWidget(1, self.injection_fault_v_lines[i], alignment=QtCore.Qt.AlignLeft)
-        
-        #Two lines to separe the three main horizontals layouts
-        self.injection_fault_h_lines = [QtWidgets.QFrame() for _ in range(2)]
-        for i in range(2):
-            self.injection_fault_h_lines[i].setFrameShape(QtWidgets.QFrame.HLine)
-            self.Injection_Fault_v_layout.insertWidget(2*i+1, self.injection_fault_h_lines[i])
-
-
 
         # Home Page Layout/Widget
         self.home_page = QtWidgets.QWidget()
@@ -513,6 +574,10 @@ class Ui_MainWindow(object):
         self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+
+
+
+
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "ChaXa Demonstrator"))
@@ -553,8 +618,12 @@ class Ui_MainWindow(object):
         self.menuAbout.setTitle(_translate("MainWindow", "About"))
         self.actionQuit.setText(_translate("MainWindow", "Quit"))
         self.actionAbout_the_app.setText(_translate("MainWindow", "About the app..."))
-
-
+        
+        #injection fault part
+        for i in range(3):
+            self.injection_fault_encode_button[i].setText(_translate("MainWindow", "Encode"))
+            self.injection_fault_launch_button[i].setText(_translate("MainWindow", "Launch Injection Fault"))
+            self.injection_fault_text[i].setPlaceholderText(_translate("MainWindow", "Enter your message here"))
 
 if __name__ == "__main__":
     import sys
